@@ -17,3 +17,4 @@ $ npm i express-handlebars express-sesion mysql express-mysql-session morgan bcr
 - connect-flash lo usaremos para mostrar mensajes de error y exito cuando el usuario realice una operacion
 - express-validator es un modulo para validar los datos que el usuario nos envia desde la aplicacion cliente 
 
+
