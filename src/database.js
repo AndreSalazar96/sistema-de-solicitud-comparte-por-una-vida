@@ -28,5 +28,3 @@ pool.getConnection((err, connection) => {
 pool.query = promisify(pool.query);
 
 module.exports = pool;
-
-

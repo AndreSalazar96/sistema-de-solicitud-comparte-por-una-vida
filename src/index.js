@@ -26,16 +26,16 @@ app.use(express.json());
 
 //global Variables
 app.use((req, res, next) => {
-    app.locals.message = req.flash('message');
-    app.locals.success = req.flash('success');
-    app.locals.user = req.user;
+    // app.locals.message = req.flash('message');
+    // app.locals.success = req.flash('success');
+    // app.locals.user = req.user;
     next();
   });
 
 
 //Routes
 app.use(require('./routes'));
-app.use(require('./routes/authentication')); //OJO SI ESTAS RUTAS ESTAN VACIAS LA TERMINAK DARA ERROR
+app.use(require('./routes/authentication')); //OJO SI ESTAS RUTAS ESTAN VACIAS LA TERMINAL DARA ERROR
 app.use('/links', require('./routes/links'));// "" ""
 
 //Public
