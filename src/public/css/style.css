@@ -1,0 +1,9 @@
+.body-container{
+    display: flex;
+    justify-content: center;
+}
+
+ul.nav.flex-column,
+footer.page-footer.font-small.blue.pt-4{
+    background-color: #f8f9fa; 
+}

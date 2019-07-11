@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const flash = require('connect-flash'); 
 
 
 // Initializations
@@ -23,6 +24,7 @@ app.set('view engine', '.hbs');
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(flash());
 
 //global Variables
 app.use((req, res, next) => {
