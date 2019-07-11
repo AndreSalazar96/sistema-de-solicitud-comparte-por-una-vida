@@ -16,6 +16,7 @@ router.post('/add', async (req,res) => {
     };  //CAPTAMOS EL OBJETO EN LA CONSOLA PARA SABER QUE ESTAMOS ALMACENANDO
     // console.log(new_link); // aqui recibo el objeto 
     await pool.query('INSERT INTO links set ?', [new_link]); 
+    req.flash('success', 'Link saved successfully');
     res.redirect('/links');
 });
 
@@ -28,6 +29,7 @@ router.get('/', async (req, res) => {
 router.get('/delete/:id', async (req,res) => {
     const {id} = req.params;
     await pool.query('DELETE FROM links WHERE ID = ?', [id]);
+    req.flash('success', 'Link removed successfuly'); //Modulo de connect flash
     res.redirect('/links');
 });
 

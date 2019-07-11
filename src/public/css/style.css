@@ -7,3 +7,36 @@ ul.nav.flex-column,
 footer.page-footer.font-small.blue.pt-4{
     background-color: #f8f9fa; 
 }
+ul.nav.flex-column{
+    height: calc(100vh - 42vh);
+    width: 12%;
+}
+
+
+.alert-success {
+    color: #111111 !important;
+    background-color: #d4eddae0 !important;
+    border-color: #04eb39 !important;
+}
+
+.message-container{
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    bottom: 70%; 
+}
+
+img.img-logo-menu-navbar{
+    width: 25% !important;
+}
+
+
+footer.page-footer.font-small.teal.pt-4{
+    background-color: #393939;
+    color: #fff;
+}
+
+a.url-add{
+    z-index: 1000;
+    position: relative; 
+}
