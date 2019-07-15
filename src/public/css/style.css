@@ -8,7 +8,7 @@ footer.page-footer.font-small.blue.pt-4 {
   background-color: #f8f9fa;
 }
 ul.nav.flex-column {
-  height: calc(100vh - 42vh);
+  height: calc(100vh - 35vh);
   width: 12%;
 }
 
@@ -37,4 +37,10 @@ footer.page-footer.font-small.teal.pt-4 {
 a.url-add {
   z-index: 1000;
   position: relative;
+}
+
+img.img-logo-menu-navbar.login-img {
+  width: 91% !important;
+  margin: 13px;
+  padding: 10px;
 }

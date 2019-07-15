@@ -3,6 +3,6 @@ module.exports = {
         host: 'localhost',
         user: 'root',
         password: '',
-        database: 'comparte_por_una_vida'
+        database: 'cpuv'
     }
 }
