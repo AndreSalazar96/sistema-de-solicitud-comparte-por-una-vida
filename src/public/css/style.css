@@ -44,3 +44,67 @@ img.img-logo-menu-navbar.login-img {
   margin: 13px;
   padding: 10px;
 }
+
+img.img-logo-menu-navbar.logo-footer {
+  width: 50% !important;
+}
+
+/* The hero image */
+body {
+  background: #f5f6f5;
+  font-family: "Oswalt", sans-serif;
+}
+
+.index {
+  width: 100vw;
+  height: 100vh;
+}
+
+.masthead {
+  color: white;
+  min-height: 30rem;
+  width: 100%;
+  height: 100%;
+  padding-top: 8rem;
+  background-image: url("http://comparteporunavida.com/wp-content/uploads/2017/12/IMG_HOME-e1511452157837.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.masthead h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+ul.menu-list-footer {
+  list-style: none;
+}
+
+@media (min-width: 992px) {
+  .masthead h1 {
+    font-size: 5.5rem;
+  }
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #d96f93;
+  border-color: #d96f93;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #00a1bc;
+  border-color: #00a1bc;
+}
+
+@media (min-width: 768px) {
+  .text-md-left {
+    text-align: center !important;
+  }
+}
+
+.card.text-center.box-shadow{
+  box-shadow: 4px 3px 8px 0px #00000033;
+}
