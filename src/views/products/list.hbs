@@ -1,6 +1,6 @@
 <div class="container p-4">
     <div class="row">
-        {{#each links}}
+        {{#each products}}
         <div class="col-md-3">
             <div class="card text-center">
                 <div class="card-body">
@@ -8,13 +8,13 @@
                         <h3 class="card-title text-uppercase">
                             {{title}}
                         </h3>
-                        <p class="card-title">Vence el: {{url}}</p>
+                        <p class="card-title">Vence el: {{fecha_caducidad}}</p>
                     
                     <p class="description m-2 ">{{description}}</p>
                     <p class="">{{timeago created_at}}</p>
                     <div class="col-md-12 container-buttons-list">
-                        <a href="/links/delete/{{id}}" class="btn btn-danger">Borrar</a>
-                        <a href="/links/edit/{{id}}" class="btn btn-secondary">Editar</a>
+                        <a href="/products/delete/{{id_product}}" class="btn btn-danger">Borrar</a>
+                        <a href="/products/edit/{{id_product}}" class="btn btn-secondary">Editar</a>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
         <div class="col-md-4 mx-auto">
             <div class="card-body text-center">
                 <p class="empty-message">No hay productos aun.</p>
-                <a href="/links/add" class="url-add">Agregar uno</a>
+                <a href="/products/add" class="url-add">Agregar uno</a>
             </div>
         </div>
         {{/each}}
