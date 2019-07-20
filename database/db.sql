@@ -18,16 +18,6 @@ MODIFY
   id INT(11) NOT NULL AUTO_INCREMENT,
   AUTO_INCREMENT = 2;
 DESCRIBE users;
-INSERT INTO
-  users (id, username, password, fullname)
-VALUES
-  (1, 'Andres', 'Asalazar123++', 'Andres Salazar'),
-  (1, 'Arianny', 'Ari123++', 'Arianny Rodriguez'),
-  (1, 'Yonaiker', 'Yona123++', 'Yonainer Sosa');
-SELECT
-  *
-FROM
-  users;
 -- products TABLE
   CREATE TABLE products (
     id_product INT(11) NOT NULL,
