@@ -9,7 +9,7 @@
 
       <ul class="navbar-nav ml-auto">
         {{#if user}}
-        <li class="nav-item dropdown">
+        {{!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Links
@@ -19,22 +19,35 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/links/add">Add a link</a>
           </div>
-        </li>
+        </li> --}}
+
+      
         <li class="nav-item">
-          <a href="/profile" class="nav-link">Profile</a>
+          <a href="/profile" class="nav-link">{{user.username}}</a>
         </li>
         <li class="nav-item">
           <a href="/logout" class="nav-link">Logout</a>
         </li>
         {{else}}
-        <li class="nav-item">
+        {{!--<li class="nav-item">
           <a href="/signin" class="nav-link">SignIn</a>
         </li>
         <li class="nav-item">
           <a href="/signup" class="nav-link">SignUp</a>
+        </li> --}}
+        <li class="nav-item">
+          <a href="https://comparteporunavida.com/la-fundacion/" class="nav-link">La fundación</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://comparteporunavida.com/como-ayudar/" class="nav-link">¿Como ayudar?</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://comparteporunavida.com/colombia/" class="nav-link">Colombia</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://comparte-por-una-vida.myshopify.com/" class="nav-link">Tienda</a>
         </li>
         {{/if}}
-
       </ul>
     </div>
   </div>

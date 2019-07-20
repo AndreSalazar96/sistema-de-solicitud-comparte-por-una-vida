@@ -5,12 +5,12 @@ const router = express.Router();
 const passport = require("passport");
 const {isLoggedIn, isNotloggedIn} = require('../lib/auth');
 
-router.get("/signup", isNotloggedIn, (req, res) => {
+router.get("/signup", (req, res) => {
   //Este enrutador le dira al usuario que cuando visite podra ver un formulario
   res.render("auth/signup"); //renderizamos una vista
 });
 
-router.post("/signup", isNotloggedIn, passport.authenticate("local.signup", {
+router.post("/signup", passport.authenticate("local.signup", {
     successRedirect: "/profile",
     failureRedirect: "/signup",
     failureFlash: true

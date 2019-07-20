@@ -13,23 +13,24 @@ router.post('/add', isLoggedIn, async (req,res) => {
     const new_link = {
         title,
         url,
-        description
+        description,
+        user_id: req.user.id
     };  //CAPTAMOS EL OBJETO EN LA CONSOLA PARA SABER QUE ESTAMOS ALMACENANDO
-    // console.log(new_link); // aqui recibo el objeto 
     await pool.query('INSERT INTO links set ?', [new_link]); 
-    req.flash('success', 'Link saved successfully');
+    req.flash('success', 'Producto guardado satisfactoriamente');
     res.redirect('/links');
 });
 
 router.get('/', isLoggedIn, async (req, res) => {
-    const links = await pool.query('SELECT * FROM links');
+    const links = await pool.query('SELECT * FROM links WHERE user_id = ?', [req.user.id]);
+    console.log(links);
     res.render('links/list', { links });
 });
 
 router.get('/delete/:id', isLoggedIn, async (req,res) => {
     const {id} = req.params;
     await pool.query('DELETE FROM links WHERE ID = ?', [id]);
-    req.flash('success', 'Link removed successfuly'); //Modulo de connect flash
+    req.flash('success', 'Producto removido satisfactoriamente'); //Modulo de connect flash
     res.redirect('/links');
 });
 
@@ -48,7 +49,7 @@ router.post('/edit/:id', isLoggedIn, async (req, res) => {
         url
     };
     await pool.query('UPDATE links set ? WHERE id = ?', [newLink, id]);
-    req.flash('success', 'Link Updated Successfully'); //Modulo de connect flash
+    req.flash('success', 'Producto actualizado satisfactoriamente'); //Modulo de connect flash
     res.redirect('/links');
 });
 

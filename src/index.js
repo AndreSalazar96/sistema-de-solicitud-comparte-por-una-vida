@@ -54,7 +54,8 @@ app.use((req, res, next) => {
 //Routes
 app.use(require('./routes'));
 app.use(require('./routes/authentication')); //OJO SI ESTAS RUTAS ESTAN VACIAS LA TERMINAL DARA ERROR
-app.use('/links', require('./routes/links'));// "" ""
+app.use('/links', require('./routes/links'));
+app.use('/users', require('./routes/listusers'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));
