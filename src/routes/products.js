@@ -14,7 +14,7 @@ router.post('/add', isLoggedIn, async (req,res) => {
         title,
         fecha_caducidad,
         description,
-        user_id: req.user.id
+        user_id: req.user.id_usuario
     };  //CAPTAMOS EL OBJETO EN LA CONSOLA PARA SABER QUE ESTAMOS ALMACENANDO
     await pool.query('INSERT INTO products set ?', [new_product]); 
     req.flash('success', 'Producto guardado satisfactoriamente');
@@ -22,7 +22,7 @@ router.post('/add', isLoggedIn, async (req,res) => {
 });
 
 router.get('/', isLoggedIn, async (req, res) => {
-    const products = await pool.query('SELECT * FROM products WHERE user_id = ?', [req.user.id]);
+    const products = await pool.query('SELECT * FROM products WHERE user_id = ?', [req.user.id_usuario]);
     console.log(products);
     res.render('products/list', { products });
 });

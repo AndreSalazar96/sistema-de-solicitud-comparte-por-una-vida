@@ -8,7 +8,7 @@ footer.page-footer.font-small.blue.pt-4 {
   background-color: #f8f9fa;
 }
 ul.nav.flex-column {
-  height:100vh;
+  height: 100vh;
   width: 12%;
 }
 
@@ -16,13 +16,15 @@ ul.nav.flex-column {
   color: #111111 !important;
   background-color: #d4eddae0 !important;
   border-color: #04eb39 !important;
+  padding: 12px 35px 13px 35px;
+  text-align: center;
 }
 
 .message-container {
   position: absolute;
   width: 100%;
   z-index: 100;
-  bottom: 70%;
+  bottom: 50%;
 }
 
 img.img-logo-menu-navbar {
@@ -105,21 +107,20 @@ ul.menu-list-footer {
   }
 }
 
-.card.text-center.box-shadow{
+.card.text-center.box-shadow {
   box-shadow: 4px 3px 8px 0px #00000033;
 }
 
-
-div#navbarNav{
+div#navbarNav {
   width: 100%;
 }
 
-div.row.form-subcontainer-user{
+div.row.form-subcontainer-user {
   display: flex;
   justify-content: center;
 }
 
-nav.navbar.navbar-expand-lg.navbar-light.bg-light.navbar-add-user{
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.navbar-add-user {
   margin-bottom: 5%;
 }
 
@@ -127,6 +128,38 @@ h3.text-update-user {
   margin-right: 30px;
 }
 
-div.col-md-6.text-center.center-block.form-usr-conatiner-update{
+div.col-md-6.text-center.center-block.form-usr-conatiner-update {
   margin-bottom: 5%;
 }
+
+ul.menu-list-footer {
+  display: flex;
+  justify-content: center;
+}
+
+a.list-footer-redirect {
+  margin: 10px;
+}
+
+.col-md-9.mx-auto.form-style {
+  margin-top: 7%;
+}
+
+table.table.table-bordered.solicitud-table {
+  margin: 30px;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.navbar-add-solitudes {
+  width: 100%;
+  border-bottom: 3px solid #d96f93 !important;
+  background-color: #d96f937d !important;
+}
+
+h3.text-update-solicitudes {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-family: inherit;
+}
+

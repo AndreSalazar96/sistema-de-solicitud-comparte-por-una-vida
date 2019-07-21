@@ -40,15 +40,15 @@ passport.use('local.signup', new LocalStrategy({
     };
     newUser.password = await helpers.encryptPassword(password);
     const result = await pool.query('INSERT INTO users SET ? ', newUser);
-    newUser.id = result.insertId;
+    newUser.id_usuario = result.insertId;
     return done(null, newUser);
 }));
 
 passport.serializeUser((user,done) => {
-    done(null, user.id);
+    done(null, user.id_usuario);
 });
 
-passport.deserializeUser(async (id,done) => {
-    const rows =  await pool.query('SELECT * FROM users WHERE id = ?', [id]);
+passport.deserializeUser(async (id_usuario,done) => {
+    const rows =  await pool.query('SELECT * FROM users WHERE id_usuario = ?', [id_usuario]);
     done(null, rows[0]);
 });

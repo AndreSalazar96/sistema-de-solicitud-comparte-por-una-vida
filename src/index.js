@@ -56,6 +56,7 @@ app.use(require('./routes'));
 app.use(require('./routes/authentication')); //OJO SI ESTAS RUTAS ESTAN VACIAS LA TERMINAL DARA ERROR
 app.use('/products', require('./routes/products'));
 app.use('/users', require('./routes/listusers'));
+app.use('/solicitudes', require('./routes/listsolicitudes'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));

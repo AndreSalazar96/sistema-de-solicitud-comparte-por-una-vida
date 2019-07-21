@@ -1,0 +1,39 @@
+<div class="container ">
+    <div class="row">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
+            <h3 class="text-update-solicitudes">Lista de Solicitudes</h3>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+        <table class="table table-bordered solicitud-table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">status</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Fecha de creacion</th>
+
+                </tr>
+            </thead>
+            {{#each solicitudes}}
+            <tbody>
+                <tr>
+                    <th scope="row">{{id_solicitudes}}</td>
+                    <td>{{id_tipo_usuario}}</td>
+                    <td>{{id_status}}</td>
+                    <td>{{nombre_solicitante}}</td>
+                    <td>{{telefono}}</td>
+                    <td>{{correo}}</td>
+                    <td>{{timeago create_at}}</td>
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+    </div>
+</div>
