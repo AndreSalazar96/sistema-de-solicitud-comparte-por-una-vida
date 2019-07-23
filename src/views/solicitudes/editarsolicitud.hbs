@@ -1,0 +1,64 @@
+{{!--Vista de formulario de registro--}}
+
+<div class="container aprobar-solicitud">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
+        <h3 class="text-update-solicitudes">Aprobar Solicitud</h3>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="row">
+        <div class="col-md-6 mx-auto form-style aprobar-solicitud">
+            <div class="card text-center box-shadow">
+                <div class="card-header">
+                    <p class="text-ayuda">solicitud de {{solicitud.nombre_solicitante}}</p>
+                </div>
+                <div class="card-body">
+
+                    <form action="/solicitudes/editarsolicitud/{{solicitud.id_solicitudes}}" method="POST">
+
+                        <div class="form-group">
+                            <input type="text" name="nombre_solicitante" id="" placeholder="Nombre (colegio, hospital)"
+                                class="form-control" value="{{solicitud.nombre_solicitante}}" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="ubicacion_solicitante" placeholder="Ubicación" class="form-control"
+                                value="{{solicitud.ubicacion_solicitante}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="contacto" placeholder="Nombre de solicitante" class="form-control"
+                                value="{{solicitud.contacto}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telefono" placeholder="Teléfono" class="form-control"
+                                value="{{solicitud.telefono}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input type="mail" name="correo" placeholder="Correo" class="form-control"
+                                value="{{solicitud.correo}}" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="id_status" id="" placeholder="id_status" class="form-control"
+                                value="{{solicitud.descripcion_status}}" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="id_tipo_usuario" id="" placeholder="id_tipo_usuario"
+                                class="form-control" value="{{solicitud.descripcion_tipo_usuario}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success">
+                                Aprobar al solicitante {{solicitud.nombre_solicitante}}
+                            </button>
+                             <a href="/solicitudes/enproceso/{{solicitud.id_solicitudes}}" class="btn btn-warning">En Proceso</a>
+                            <a href="/solicitudes/anular/{{solicitud.id_solicitudes}}" class="btn btn-danger">Anular</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

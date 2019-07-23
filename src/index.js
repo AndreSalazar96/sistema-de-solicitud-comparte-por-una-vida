@@ -57,6 +57,7 @@ app.use(require('./routes/authentication')); //OJO SI ESTAS RUTAS ESTAN VACIAS L
 app.use('/products', require('./routes/products'));
 app.use('/users', require('./routes/listusers'));
 app.use('/solicitudes', require('./routes/listsolicitudes'));
+app.use('/tipo_producto', require('./routes/tipo_producto'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));

@@ -7,49 +7,61 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item btn btn-primary" href="/signup">Agreagar Usuario<span class="sr-only">(current)</span></a>
+                <a class="nav-item btn btn-primary" href="/signup">Agreagar Usuario<span
+                        class="sr-only">(current)</span></a>
             </div>
         </div>
     </nav>
-    <div class="row form-subcontainer-user">
-        <div class="col-md-6 text-center center-block form-usr-conatiner-update">
+    {{!--Vista de formulario de registro--}}
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h3>Datos del usuario: {{listusers.fullname}}</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/users/updateuser/{{listusers.id_usuario}}" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="fullname" placeholder="Nombre Completo" class="form-control"
+                                    autofocus value="{{listusers.fullname}}" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="username" id="" placeholder="Username" class="form-control" value="{{listusers.username}}" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="nombre_razon"
+                                    placeholder="Nombre (hospital, casa hogar, colegio)" class="form-control" value="{{listusers.nombre_razon}}" >
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Seleccione</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01" name="id_tipo_usuario" >
+                                       
+                                        <option value="{{listusers.id_tipo_usuario}}" >{{listusers.descripcion_tipo_usuario}}</option>
+                                       
+                                    </select>
 
-            <div class="card text-center">
-                <div class="card-header">
-                    <img src="/img/user.png" alt="" class="img-logo-menu-navbar user-img">
-                </div>
-                <div class="card-body">
-                    <form method="GET" action="user">
-                        <div class="form-row">
-                            <div class="col-6 p-2 ">
-                                <input type="text" class="form-control" placeholder="Andrés ">
+                                </div>
                             </div>
-                            <div class="col-6 p-2">
-                                <input type="text" class="form-control" placeholder="Salazar">
+                            <div class="form-group">
+                                <input type="text" name="telefono" placeholder="Telefono" class="form-control" value="{{listusers.telefono}}" >
                             </div>
-                            <div class="col-6 p-2">
-                                <input type="text" class="form-control" placeholder="asalazar">
+                            <div class="form-group">
+                                <input type="text" name="correo" placeholder="Correo electronico" class="form-control" value="{{listusers.correo}}" >
                             </div>
-                            <div class="col-6 p-2">
-                                <input type="email" class="form-control" placeholder="asalazar@analiticom.com">
+                            <div class="form-group">
+                                <input type="text" name="direccion" placeholder="Direccion" class="form-control" value="{{listusers.direccion}}" >
                             </div>
-                            <div class="col-6 p-2">
-                                <input type="text" class="form-control" placeholder="0412548548">
-                            </div>
-                            <div class="col-6 p-2">
-                                <input type="text" class="form-control" placeholder="Simon Rodriguez">
-                            </div>
-                            <div class="col-6 p-2">
-                                <input type="text" class="form-control" placeholder="Desarrollador">
-                            </div>
-
-                            <div class="form-group col-12 p-2">
+                            <div class="form-group">
                                 <button class="btn btn-success btn-block">
-                                    Actualizar usuario
+                                    Registrar Usuario
                                 </button>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

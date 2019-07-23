@@ -4,14 +4,15 @@ const router = express.Router();
 
 const passport = require("passport");
 const {isLoggedIn, isNotloggedIn} = require('../lib/auth');
+const pool = require('../database');
 
-router.get("/signup", (req, res) => {
-  //Este enrutador le dira al usuario que cuando visite podra ver un formulario
-  res.render("auth/signup"); //renderizamos una vista
+router.get("/signup", isLoggedIn,async (req, res) => {
+  const tipo_usuario = await pool.query('SELECT * FROM tipo_usuario');
+  res.render("auth/signup", {tipo_usuario});
 });
 
 router.post("/signup", passport.authenticate("local.signup", {
-    successRedirect: "/profile",
+    successRedirect: "/dashboard",
     failureRedirect: "/signup",
     failureFlash: true
   })
@@ -23,14 +24,14 @@ router.get('/signin', isNotloggedIn, (req, res) => {
 
 router.post('/signin', (req, res, next) => {
     passport.authenticate('local.signin', {
-        successRedirect: '/profile',
+        successRedirect: '/dashboard',
         failureRedirect: '/signin',
         failureFlash: true
     })(req, res, next);
 });
 
-router.get("/profile", isLoggedIn, (req, res) => {
-  res.render('profile');
+router.get("/dashboard", isLoggedIn, (req, res) => {
+  res.render('dashboard');
 });
 
 router.get('/logout', isLoggedIn, (req, res) => {

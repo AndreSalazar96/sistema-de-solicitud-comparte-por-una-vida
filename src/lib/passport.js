@@ -16,27 +16,31 @@ passport.use('local.signin', new LocalStrategy({
     const user = rows[0];
     const validPassword = await helpers.matchPassword(password, user.password)
     if (validPassword) {
-      done(null, user, req.flash('success', 'Welcome ' + user.username));
+      done(null, user, req.flash('success', 'Bienvenido ' + user.username));
     } else {
-      done(null, false, req.flash('message', 'Incorrect Password'));
+      done(null, false, req.flash('message', 'Contrasena Incorrecta'));
     }
   } else {
-    return done(null, false, req.flash('message', 'The Username does not exists.'));
+    return done(null, false, req.flash('message', 'El usuario no  existe.'));
   }
 }));
-
-
 
 passport.use('local.signup', new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password',
     passReqToCallback: true
 }, async (req, username, password, done) => {
-    const {fullname} = req.body;
+    const {fullname,nombre_razon,id_tipo_usuario,direccion,telefono,correo,avatar_image} = req.body;
     const newUser = {
         username,
         password,
-        fullname
+        fullname,
+        nombre_razon,
+        id_tipo_usuario,
+        direccion,
+        telefono,
+        correo,
+        avatar_image
     };
     newUser.password = await helpers.encryptPassword(password);
     const result = await pool.query('INSERT INTO users SET ? ', newUser);

@@ -22,16 +22,9 @@
                 <div class="card-body">
 
                     <form action="/" method="POST">
-                        <div class="form-group" style="visibility: hidden">
-                            <input type="number" name="id_tipo_usuario" id="" placeholder="id_tipo_usuario"
-                                class="form-control" value="3">
-                        </div>
-                        <div class="form-group" style="visibility: hidden">
-                            <input type="number" name="id_status" id="" placeholder="id_status" class="form-control"
-                                value="1">
-                        </div>
+
                         <div class="form-group">
-                            <input type="text" name="nombre_solicitante" id="" placeholder="Nombre (colegio, hospital)"
+                            <input type="text" name="nombre_solicitante" id="" placeholder="Nombre (colegio, hospital o casa hogar)"
                                 class="form-control">
                         </div>
 
@@ -49,10 +42,19 @@
                             <input type="mail" name="correo" placeholder="Correo" class="form-control">
                         </div>
 
+
                         <div class="form-group">
                             <button class="btn btn-success btn-block">
                                 Enviar Solicitud de Ayuda
                             </button>
+                        </div>
+                        <div class="form-group" style="visibility: hidden">
+                            <input type="number" name="id_tipo_usuario" id="" placeholder="id_tipo_usuario"
+                                class="form-control" value="3">
+                        </div>
+                        <div class="form-group" style="visibility: hidden">
+                            <input type="number" name="id_status" id="" placeholder="id_status" class="form-control"
+                                value="1">
                         </div>
                     </form>
                 </div>

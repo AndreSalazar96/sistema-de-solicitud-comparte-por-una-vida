@@ -1,31 +1,33 @@
-<table class="table p-4">
-    <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Correo</th>
-            <th scope="col">Telefono</th>
-             <th scope="col">Cargo</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>  
-            <td><a href="/users/updateuser">Andres Salazar</a></td>
-            <td>asalazar@analiticom.com</td>
-            <td>0412548548</td>
-            <td>Desarrolador</td>
-            
-        </tr>
-        <tr> 
-           <td><a href="/users/updateuser">Andres Salazar</a></td>
-            <td>asalazar@analiticom.com</td>
-            <td>0412548548</td>
-            <td>Desarrolador</td>
-        </tr>
-        <tr>
-            <td><a href="/users/updateuser">Andres Salazar</a></td>
-            <td>asalazar@analiticom.com</td>
-            <td>0412548548</td>
-            <td>Desarrolador</td>
-        </tr>
-    </tbody>
-</table>
+<div class="container ">
+    <div class="row">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
+            <h3 class="text-update-solicitudes">Lista de Usuarios Registrados</h3>
+        </nav>
+
+        <input type="text" id="myInput" onkeyup="filterTableFunction()" placeholder="Buscar usuario...">
+        <table class="table table-bordered solicitud-table" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">correo</th>
+                    <th scope="col">telefono</th>
+                    <th scope="col">Tipo de Usuario</th>
+                </tr>
+            </thead>
+            {{#each list_users}}
+            <tbody>
+                <tr>
+                    <th scope="row"><a href="/users/updateuser/{{id_usuario}}">{{id_usuario}}</a></td>
+                    <td>{{fullname}}</td>
+                    <td>{{correo}}</td>
+                    <td>{{telefono}}</td>
+                    <td>{{descripcion_tipo_usuario}}</td>
+           
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+    </div>
+</div>

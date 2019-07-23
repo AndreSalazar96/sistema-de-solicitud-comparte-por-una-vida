@@ -8,26 +8,26 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
-        <table class="table table-bordered solicitud-table">
+        <input type="text" id="myInput" onkeyup="filterTableFunctionList()" placeholder="Buscar solicitud..." >
+        <table class="table table-bordered solicitud-table" id="myTable">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Usuario</th>
                     <th scope="col">status</th>
-                    <th scope="col">Nombre</th>
+                    <th scope="col">Institucion</th>
+                    <th scope="col">Tipo de Usuario</th>
                     <th scope="col">Telefono</th>
                     <th scope="col">Correo</th>
                     <th scope="col">Fecha de creacion</th>
-
                 </tr>
             </thead>
             {{#each solicitudes}}
             <tbody>
                 <tr>
-                    <th scope="row">{{id_solicitudes}}</td>
-                    <td>{{id_tipo_usuario}}</td>
-                    <td>{{id_status}}</td>
+                    <th scope="row"><a href="/solicitudes/editarsolicitud/{{id_solicitudes}}">{{id_solicitudes}}</a></td>
+                    <td>{{descripcion_status}}</td>
                     <td>{{nombre_solicitante}}</td>
+                    <td>{{descripcion_tipo_usuario}}</td>
                     <td>{{telefono}}</td>
                     <td>{{correo}}</td>
                     <td>{{timeago create_at}}</td>

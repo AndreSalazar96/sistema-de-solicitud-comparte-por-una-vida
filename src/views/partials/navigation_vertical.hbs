@@ -1,9 +1,9 @@
 {{#if user}}
 <ul class="nav flex-column main-vertical-menu">
-  <li class="nav-item">
+  <li class="nav-item li-usuarios">
     <a class="nav-link nav-link" href="/users/user">Usuarios</a>
   </li>
-  <li class="nav-item dropdown">
+  <li class="nav-item dropdown li-productos">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false">
       Productos
@@ -11,23 +11,23 @@
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <a class="dropdown-item" href="/products">Todos los productos</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/products/add">Agreagr producto</a>
+      <a class="dropdown-item" href="/products/add">Agreagar producto</a>
     </div>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Tipo de producto</a>
+  <li class="nav-item li-tipo-productos">
+    <a class="nav-link" href="/tipo_producto/tipo_producto">Tipo de producto</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item li-solicitud-registro">
     <a class="nav-link" href="/solicitudes/listsolicitudes">Solicitud de registro</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item li-ayuda">
     <a class="nav-link" href="#">Ayuda</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item li-donaciones">
     <a class="nav-link" href="#">Donaciones</a>
   </li>
-  <li class="nav-item">
+  {{!-- <li class="nav-item li-proveedores">
     <a class="nav-link" href="#">Proveedores</a>
-  </li>
+  </li> --}}
 </ul>
 {{/if}}

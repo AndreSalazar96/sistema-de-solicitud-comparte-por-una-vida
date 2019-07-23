@@ -23,12 +23,12 @@ ul.nav.flex-column {
 .message-container {
   position: absolute;
   width: 100%;
-  z-index: 100;
+  z-index: 1;
   bottom: 50%;
 }
 
 img.img-logo-menu-navbar {
-  width: 25% !important;
+  width: 40% !important;
 }
 
 footer.page-footer.font-small.teal.pt-4 {
@@ -141,8 +141,8 @@ a.list-footer-redirect {
   margin: 10px;
 }
 
-.col-md-9.mx-auto.form-style {
-  margin-top: 7%;
+.col-md-6.mx-auto.form-style.aprobar-solicitud{
+  margin: 30px;
 }
 
 table.table.table-bordered.solicitud-table {
@@ -163,3 +163,70 @@ h3.text-update-solicitudes {
   font-family: inherit;
 }
 
+p.text-ayuda{
+  font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px;
+    text-transform: uppercase;
+    font-family: inherit;
+    color: #00a1bc;
+    text-shadow: 2px 3px 4px #0000006e;
+}
+
+form.col-md-6.editar-tipo-producto-form{
+  margin-top: 5%;
+}
+
+.container-form-editar-tipo-producto.container{
+  display: flex;
+  justify-content: center;
+}
+
+/* BLOQUEO DE VISTAS  TEMPORAL*/
+
+/* COLABORADOR */
+body.user-login-id-nro-2 li.nav-item.li-usuarios,
+body.user-login-id-nro-2 li.nav-item.li-solicitud-registro,
+body.user-login-id-nro-2 li.nav-item.li-proveedores{
+  display: none;
+}
+
+/* SOLICITANTE */
+body.user-login-id-nro-3 li.nav-item.li-usuarios,
+body.user-login-id-nro-3 li.nav-item.li-solicitud-registro,
+body.user-login-id-nro-3 li.nav-item.li-proveedores,
+body.user-login-id-nro-3 li.nav-item.dropdown.li-productos,
+body.user-login-id-nro-3 li.nav-item.li-tipo-productos,
+body.user-login-id-nro-3 li.nav-item.li-donaciones{
+  display: none;
+}
+
+body.user-login-id-nro-4 li.nav-item.li-usuarios,
+body.user-login-id-nro-4 li.nav-item.li-solicitud-registro,
+body.user-login-id-nro-4 li.nav-item.li-proveedores,
+body.user-login-id-nro-4 li.nav-item.dropdown.li-productos,
+body.user-login-id-nro-4 li.nav-item.li-tipo-productos,
+body.user-login-id-nro-4 li.nav-item.li-ayuda{
+  display: none;
+}
+
+#myInput {
+  background-image: url(/css/searchicon.png);
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin: 31px 31px 0px 31px;
+}
+
+.form-group.cantidad-existencia-form{
+  display: flex;
+  justify-content: center;
+}
+
+input.form-control.col-md-6.input-cantidad-existencia{
+  margin: 10px;
+}

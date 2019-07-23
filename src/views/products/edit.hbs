@@ -5,13 +5,23 @@
                 <div class="card-body">
                     <form action="/products/edit/{{product.id_product}}" method="POST">
                         <div class="form-group">
-                            <input type="text" value="{{product.title}}" class="form-control" name="title" placeholder="title" autofocus>
+                            <input type="text" value="{{product.title}}" class="form-control" name="title"
+                                placeholder="title" autofocus>
                         </div>
                         <div class="form-group">
-                            <input type="text" value="{{product.fecha_caducidad}}" name="fecha_caducidad" class="form-control" placeholder="Fecha Caducidad">
-                        </div> 
+                            <input type="text" value="{{product.fecha_caducidad}}" name="fecha_caducidad"
+                                class="form-control form-group" placeholder="Fecha Caducidad" disabled>
+                            <input type="date" value="{{product.fecha_caducidad}}" name="fecha_caducidad"
+                                class="form-control form-group" placeholder="Fecha Caducidad">
+                        </div>
+
+                        <div class="form-group cantidad-existencia-form">
+                            <input type="text" class="form-control col-md-6 input-cantidad-existencia" name="id_status" placeholder="Existencia"
+                                value="{{product.descripcion_status}}" disabled>
+                        </div>
                         <div class="form-group">
-                            <textarea name="description" id="" rows="2" class="form-control" placeholder="description">{{product.description}}</textarea>
+                            <textarea name="description" id="" rows="2" class="form-control"
+                                placeholder="description">{{product.description}}</textarea>
                         </div>
 
                         <div class="form-group">

@@ -9,11 +9,14 @@ router.get('/add', isLoggedIn, (req,res) => {
 });
 
 router.post('/add', isLoggedIn, async (req,res) => {
-    const { title, fecha_caducidad, description } = req.body;
+    const { title, fecha_caducidad, id_tipe_product, cantidad_producto, description, id_status  } = req.body;
     const new_product = {
         title,
         fecha_caducidad,
+        id_tipe_product,
+        cantidad_producto,
         description,
+        id_status,
         user_id: req.user.id_usuario
     };  //CAPTAMOS EL OBJETO EN LA CONSOLA PARA SABER QUE ESTAMOS ALMACENANDO
     await pool.query('INSERT INTO products set ?', [new_product]); 
@@ -42,11 +45,15 @@ router.get('/edit/:id_product', async (req,res) => {
 
 router.post('/edit/:id_product', isLoggedIn, async (req, res) => {
     const { id_product } = req.params;
-    const { title, description, fecha_caducidad} = req.body; 
+    const { title, fecha_caducidad, id_tipe_product, cantidad_producto, description, id_status} = req.body; 
     const newProduct = {
         title,
+        fecha_caducidad,
+        id_tipe_product,
+        cantidad_producto,
         description,
-        fecha_caducidad
+        id_status,
+        user_id: req.user.id_usuario
     };
     await pool.query('UPDATE products set ? WHERE id_product = ?', [newProduct, id_product]);
     req.flash('success', 'Producto actualizado satisfactoriamente'); //Modulo de connect flash

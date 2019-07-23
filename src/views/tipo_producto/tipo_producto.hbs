@@ -1,0 +1,49 @@
+<div class="container tipo-producto-container">
+    <div class="row col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
+            <h3 class="text-update-solicitudes">Categoria de Productos</h3>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+
+        <form method="POST" action="/tipo_producto/tipo_producto" class="col-md-6">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Categoria de Producto</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Titulo categoria de producto" name="titulo_tipo_producto">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Descripcion de categoria de producto</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion_tipo_producto"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-success">
+                    Agregar categoria de producto
+                </button>
+            </div>
+        </form>
+        <div class="col-md-6">
+            <table class="table table-bordered solicitud-table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Tipo Producto</th>
+                        <th scope="col">Descripcion corta</th>
+                    </tr>
+                </thead>
+                {{#each tipo_de_productos}}
+                <tbody>
+                    <tr>
+                        <th scope="row"><a href="/tipo_producto/editarproducto/{{id_tipe_product}}">{{id_tipe_product}}</a></td>
+                        <th scope="row">{{titulo_tipo_producto}}</td>
+                        <th scope="row">{{descripcion_tipo_producto}}</td>
+                    </tr>
+                </tbody>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</div>
