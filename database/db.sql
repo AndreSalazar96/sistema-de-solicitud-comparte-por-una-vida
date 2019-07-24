@@ -391,3 +391,52 @@ fk_solicitud_proveedor_id_status
 FOREIGN KEY(id_status)
 REFERENCES status(id_status);
 
+
+CREATE TABLE donaciones_proveedores (
+  id_donaciones_proveedores INT(11) NOT NULL,
+  id_usuario INT(11),
+  id_tipo_usuario INT(11),
+  id_solicitud_proveedor INT(11),
+  donacion_productios VARCHAR(200) NOT NULL,
+  tipo_caja VARCHAR(11) NOT NULL,
+  id_status INT(11)
+);
+
+ALTER TABLE donaciones_proveedores
+  ADD 
+CONSTRAINT pk_id_donaciones_proveedores
+  PRIMARY KEY( id_donaciones_proveedores);
+
+
+ALTER TABLE donaciones_proveedores
+  MODIFY id_donaciones_proveedores int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+
+DESCRIBE  donaciones_proveedores;
+
+ALTER TABLE donaciones_proveedores
+  ADD CONSTRAINT
+fk_donaciones_proveedores_id_tipo_usuario
+FOREIGN KEY(id_tipo_usuario)
+REFERENCES tipo_usuario(id_tipo_usuario);
+
+ALTER TABLE  donaciones_proveedores
+  ADD CONSTRAINT
+fk_donaciones_proveedores_id_status
+FOREIGN KEY(id_status)
+REFERENCES status(id_status);
+
+
+ALTER TABLE  donaciones_proveedores
+  ADD CONSTRAINT
+fk_donaciones_proveedores_id_solicitud_proveedor
+FOREIGN KEY(id_solicitud_proveedor)
+REFERENCES solicitud_proveedor(id_solicitud_proveedor);
+
+
+
+ALTER TABLE  donaciones_proveedores
+  ADD CONSTRAINT
+fk_donaciones_proveedores_id_usuario
+FOREIGN KEY(id_usuario)
+REFERENCES users(id_usuario);
