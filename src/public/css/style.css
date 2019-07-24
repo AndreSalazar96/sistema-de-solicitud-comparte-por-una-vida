@@ -1,3 +1,7 @@
+body{
+  font-family: inherit !important;
+}
+
 .body-container {
   display: flex;
   justify-content: center;
@@ -59,7 +63,7 @@ body {
 
 .index {
   width: 100vw;
-  height: 100vh;
+  height: 115vh;
 }
 
 .masthead {
@@ -108,7 +112,7 @@ ul.menu-list-footer {
 }
 
 .card.text-center.box-shadow {
-  box-shadow: 4px 3px 8px 0px #00000033;
+  box-shadow: 4px 6px 8px 0px #0000006b;
 }
 
 div#navbarNav {
@@ -141,7 +145,7 @@ a.list-footer-redirect {
   margin: 10px;
 }
 
-.col-md-6.mx-auto.form-style.aprobar-solicitud{
+.col-md-6.mx-auto.form-style.aprobar-solicitud {
   margin: 30px;
 }
 
@@ -163,22 +167,22 @@ h3.text-update-solicitudes {
   font-family: inherit;
 }
 
-p.text-ayuda{
+p.text-ayuda {
   font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    margin: 15px;
-    text-transform: uppercase;
-    font-family: inherit;
-    color: #00a1bc;
-    text-shadow: 2px 3px 4px #0000006e;
+  font-weight: bold;
+  text-align: center;
+  margin: 15px;
+  text-transform: uppercase;
+  font-family: inherit;
+  color: #00a1bc;
+  text-shadow: 2px 3px 4px #0000006e;
 }
 
-form.col-md-6.editar-tipo-producto-form{
+form.col-md-6.editar-tipo-producto-form {
   margin-top: 5%;
 }
 
-.container-form-editar-tipo-producto.container{
+.container-form-editar-tipo-producto.container {
   display: flex;
   justify-content: center;
 }
@@ -188,7 +192,9 @@ form.col-md-6.editar-tipo-producto-form{
 /* COLABORADOR */
 body.user-login-id-nro-2 li.nav-item.li-usuarios,
 body.user-login-id-nro-2 li.nav-item.li-solicitud-registro,
-body.user-login-id-nro-2 li.nav-item.li-proveedores{
+body.user-login-id-nro-2 li.nav-item.li-proveedores,
+body.user-login-id-nro-2 li.nav-item.li-solicitar-ayuda,
+body.user-login-id-nro-2 li.nav-item.li-donaciones {
   display: none;
 }
 
@@ -198,7 +204,8 @@ body.user-login-id-nro-3 li.nav-item.li-solicitud-registro,
 body.user-login-id-nro-3 li.nav-item.li-proveedores,
 body.user-login-id-nro-3 li.nav-item.dropdown.li-productos,
 body.user-login-id-nro-3 li.nav-item.li-tipo-productos,
-body.user-login-id-nro-3 li.nav-item.li-donaciones{
+body.user-login-id-nro-3 li.nav-item.li-donaciones,
+body.user-login-id-nro-3 li.nav-item.li-ayuda {
   display: none;
 }
 
@@ -207,7 +214,8 @@ body.user-login-id-nro-4 li.nav-item.li-solicitud-registro,
 body.user-login-id-nro-4 li.nav-item.li-proveedores,
 body.user-login-id-nro-4 li.nav-item.dropdown.li-productos,
 body.user-login-id-nro-4 li.nav-item.li-tipo-productos,
-body.user-login-id-nro-4 li.nav-item.li-ayuda{
+body.user-login-id-nro-4 li.nav-item.li-ayuda,
+body.user-login-id-nro-4 li.nav-item.li-solicitar-ayuda {
   display: none;
 }
 
@@ -222,11 +230,111 @@ body.user-login-id-nro-4 li.nav-item.li-ayuda{
   margin: 31px 31px 0px 31px;
 }
 
-.form-group.cantidad-existencia-form{
+.form-group.cantidad-existencia-form {
   display: flex;
   justify-content: center;
 }
 
-input.form-control.col-md-6.input-cantidad-existencia{
+input.form-control.col-md-6.input-cantidad-existencia {
   margin: 10px;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.main-horizontal-menu {
+  border-bottom: 3px solid #00a1bc;
+}
+
+.card.text-center {
+  border: 2px solid #d96f93;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px 0px #00000066;
+  margin-bottom: 20px;
+}
+
+/* TABS INDEX STYLE */
+li.active.tab.tab-one,
+li.tab.tab-two{
+  margin: 10px;
+} 
+
+li.active.tab.tab-one a,
+li.tab.tab-two a{
+  text-decoration: none;
+  color: #00a1bc;
+  font-size: 17px;
+  font-family: inherit;
+  transition: 0.3s;
+} 
+
+li.active.tab.tab-one a:hover,
+li.tab.tab-two a:hover{
+  text-decoration: none;
+  color: #d96f93;
+  font-size: 17px;
+  font-family: inherit;
+  transition: 0.3s;
+} 
+
+
+ul.nav.nav-tabs.nav-justified.nav-inline{
+  display: flex;
+  justify-content: center;
+}
+
+input.error {
+  border-color: #f00 !important;
+}
+
+small.required {
+  color:#f00;
+}
+
+
+li.nav-item.li-donar-redirect a{
+  font-weight: bold;
+  color: #d96f93 !important;
+  transition: 0.2s;
+}
+
+
+li.nav-item.li-donar-redirect a:hover{
+  color: #fff !important;
+  transition: 0.2s;
+  background-color: #d96f93; 
+  border-radius: 5px;
+}
+
+
+td.solicitud-class-Anulada {
+  color: red;
+  font-weight: bold;
+}
+
+td.solicitud-class-Aprobada {
+  color: #007d00;
+  font-weight: bold;
+}
+
+td.solicitud-class-En.proceso {
+  color: #cc7900;
+  font-weight: bold;
+}
+
+.registro-accion-table {
+  display: none;
+}
+
+p.description.m-2 {
+  width: 150px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+form.form-donaciones.col-md-12{
+  margin-top: 3%;
+}
+
+.col-12.p-2.btn-donacion-container {
+  display: flex;
+  justify-content: center;
 }

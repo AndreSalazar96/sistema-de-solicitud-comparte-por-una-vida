@@ -53,11 +53,13 @@ app.use((req, res, next) => {
 
 //Routes
 app.use(require('./routes'));
-app.use(require('./routes/authentication')); //OJO SI ESTAS RUTAS ESTAN VACIAS LA TERMINAL DARA ERROR
+app.use(require('./routes/authentication'));
 app.use('/products', require('./routes/products'));
+app.use('/proveedores', require('./routes/proveedores'));
 app.use('/users', require('./routes/listusers'));
 app.use('/solicitudes', require('./routes/listsolicitudes'));
 app.use('/tipo_producto', require('./routes/tipo_producto'));
+// app.use('/proveedores', require('./routes/proveedores'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));

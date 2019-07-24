@@ -1,0 +1,39 @@
+<div class="container ">
+    <div class="row">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
+            <h3 class="text-update-solicitudes">Lista de solicitud de proveedores y donaciones</h3>
+        </nav>
+        <input type="text" id="myInput" onkeyup="filterTableFunctionList()" placeholder="Buscar solicitud..." >
+        <table class="table table-bordered solicitud-table" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">status</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Tipo Usuario</th>
+                    <th scope="col">Fecha de creacion</th>
+                    <th scope="col" class="registro-accion-table">Accion</th>
+                </tr>
+            </thead>
+            {{#each listaSolicitudProveedores}}
+            <tbody>
+                <tr>
+                    <th scope="row"><a href="/proveedores/updateproveedor/{{id_solicitud_proveedor}}">{{id_solicitud_proveedor}}</a></td>
+                    <td class="solicitud-class-{{descripcion_status}}">{{descripcion_status}}</td>
+                    <td>{{nombre_proveedor}}</td>
+                    <td>{{direccion_proveedor}}</td>
+                    <td>{{telefono_proveedor}}</td>
+                    <td>{{correo_proveedor}}</td>
+                    <td>{{descripcion_tipo_usuario}}</td>
+                    <td>{{timeago created_at}}</td>
+                    <td class="registro-accion-table {{descripcion_status}}"><a href="/signup" class="btn btn-primary">Registrar usuario</a></td>
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+    </div>
+</div>

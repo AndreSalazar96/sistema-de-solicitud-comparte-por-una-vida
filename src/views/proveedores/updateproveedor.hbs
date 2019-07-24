@@ -1,0 +1,70 @@
+<div class="container p-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
+        <h3 class="text-update-solicitudes">Aprobar Solicitud De proveedor</h3>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="row">
+        <div class="col-md-6 mx-auto form-style p-4">
+            <div class="card text-center box-shadow">
+                <div class="card-header">
+                    <p class="text-ayuda">Solicitud de Donacion</p>
+                </div>
+                <div class="card-body">
+
+                    <form action="/proveedores/updateproveedor/{{listarProveedores.id_solicitud_proveedor}}" method="POST">
+
+                        <div class="form-group">
+                            <input type="text" name="nombre_proveedor" id="" placeholder="Nombre Completo"
+                                class="form-control" value="{{listarProveedores.nombre_proveedor}}" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="direccion_proveedor" placeholder="Ubicación" class="form-control"
+                                value="{{listarProveedores.direccion_proveedor}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telefono_proveedor" placeholder="Teléfono" class="form-control"
+                                value="{{listarProveedores.telefono_proveedor}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input type="mail" name="correo_proveedor" placeholder="Correo" class="form-control"
+                                value="{{listarProveedores.correo_proveedor}}" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="mail" name="empresa_proveedor" placeholder="Empresa (opcional)"
+                                class="form-control" value="{{listarProveedores.empresa_proveedor}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="razon_proveedor"
+                                placeholder="Escribenos el por que quieres donar algo a la fundacion"
+                                class="form-control" disabled>{{listarProveedores.razon_proveedor}}</textarea>
+                        </div>
+                        <div class="form-group" >
+                            <input type="text" name="id_tipo_usuario" id="" placeholder="id_tipo_usuario"
+                                class="form-control" value="{{listarProveedores.descripcion_tipo_usuario}}" disabled>
+                        </div>
+                        <div class="form-group" >
+                            <input type="text" name="id_status" id="" placeholder="id_status" class="form-control"
+                                 value="{{listarProveedores.descripcion_status}}" disabled>
+                        </div>
+     
+                        <div class="form-group">
+                            <button class="btn btn-success">
+                                Aprobar solicitud de donacion
+                            </button>
+                            <a href="/proveedores/enproceso/{{listarProveedores.id_solicitud_proveedor}}"
+                                class="btn btn-warning">En
+                                Proceso</a>
+                            <a href="/proveedores/anular/{{listarProveedores.id_solicitud_proveedor}}"
+                                class="btn btn-danger">Anular</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

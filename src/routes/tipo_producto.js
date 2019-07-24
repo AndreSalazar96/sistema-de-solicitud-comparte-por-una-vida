@@ -26,6 +26,7 @@ router.post('/editarproducto/:id_tipe_product', async (req,res) => {
     };
     console.log(editTipeProduct);
     await pool.query('UPDATE tipe_product set ? WHERE id_tipe_product = ?', [editTipeProduct, id_tipe_product]);
+    req.flash('success', 'Una categoria se actualizo')
     res.redirect('/tipo_producto/tipo_producto');
 });
 

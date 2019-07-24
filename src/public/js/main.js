@@ -42,3 +42,14 @@ function filterTableFunctionList() {
         }
     }
 }
+
+
+
+
+function login_no_login(){
+	if($('td').hasClass('solicitud-class-Aprobada')){
+        $('td.registro-accion-table.Aprobada').css({'display': 'block'});
+    }
+}
+login_no_login();
+

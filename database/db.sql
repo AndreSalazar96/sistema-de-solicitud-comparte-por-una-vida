@@ -354,3 +354,40 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+CREATE TABLE solicitud_proveedor (
+  id_solicitud_proveedor INT(11) NOT NULL,
+  nombre_proveedor VARCHAR(100) NOT NULL,
+  direccion_proveedor VARCHAR(100) NOT NULL,
+  razon_proveesor VARCHAR(500) NOT NULL,
+  telefono_proveedor VARCHAR(11) NOT NULL,
+  correo_proveedor VARCHAR(100) NOT NULL,
+  id_tipo_usuario INT(11),
+  id_status INT(11)
+);
+
+ALTER TABLE solicitud_proveedor
+  ADD 
+CONSTRAINT pk_id_solicitud_proveedor
+  PRIMARY KEY(id_solicitud_proveedor);
+
+
+ALTER TABLE solicitud_proveedor
+  MODIFY id_solicitud_proveedor int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+
+DESCRIBE solicitud_proveedor;
+
+ALTER TABLE solicitud_proveedor
+  ADD CONSTRAINT
+fk_solicitud_proveedor_id_tipo_usuario
+FOREIGN KEY(id_tipo_usuario)
+REFERENCES tipo_usuario(id_tipo_usuario);
+
+ALTER TABLE solicitud_proveedor
+  ADD CONSTRAINT
+fk_solicitud_proveedor_id_status
+FOREIGN KEY(id_status)
+REFERENCES status(id_status);
+

@@ -13,18 +13,34 @@
                                 placeholder="Fecha caducidad">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="tipo_producto"
-                                placeholder="Categoria de producto" autofocus>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Seleccione</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01" name="id_tipe_product">
+                                    {{#each tipe_product}}
+                                    <option value="{{id_tipe_product}}">{{titulo_tipo_producto}}</option>
+                                    {{/each}}
+                                </select>
+
+                            </div>
                         </div>
                         <div class="form-group">
                             <input type="number" class="form-control" name="cantidad_producto"
                                 placeholder="Cantidad existente" autofocus>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="id_status" placeholder="status"
-                                value="5">
-                            <input type="number" class="form-control" name="cantidad_producto"
-                                placeholder="Cantidad existente" value="5">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Seleccione</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01" name="id_status">
+                                    {{#each status}}
+                                    <option value="{{id_status}}">{{descripcion_status}}</option>
+                                    {{/each}}
+                                </select>
+
+                            </div>
                         </div>
                         <div class="form-group">
                             <textarea name="description" id="" rows="2" class="form-control"
