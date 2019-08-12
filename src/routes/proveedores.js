@@ -74,7 +74,23 @@ router.get('/enproceso/:id_solicitud_proveedor', async (req, res) => {
 
 
 //Guardar datos de donacion
-
+router.post('/proveedoresForm', isNotloggedIn, async (req, res) => {
+    const { nombre_proveedor, direccion_proveedor, empresa_proveedor, razon_proveedor, telefono_proveedor, correo_proveedor, id_tipo_usuario, id_status, created_at } = req.body;
+    const datosProveedor = {
+        nombre_proveedor,
+        direccion_proveedor,
+        razon_proveedor,
+        telefono_proveedor,
+        correo_proveedor,
+        empresa_proveedor,
+        created_at,
+        id_tipo_usuario,
+        id_status
+    }
+    await pool.query('INSERT INTO solicitud_proveedor set ?', [datosProveedor]);
+    req.flash('success', 'Su solicitud ha sido enviada, se le estara notificando en las proximas horas mediante un correo electronico o llamada telefonica sus subscripción.');
+    res.redirect('/proveedores/proveedoresForm'); 
+});
 
 
 
