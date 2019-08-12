@@ -22,7 +22,7 @@
             {{#each listaSolicitudProveedores}}
             <tbody>
                 <tr>
-                    <th scope="row"><a href="/proveedores/updateproveedor/{{id_solicitud_proveedor}}">{{id_solicitud_proveedor}}</a></td>
+                    <th scope="row"><a href="/solicitud_proveedores/updateproveedor/{{id_solicitud_proveedor}}">{{id_solicitud_proveedor}}</a></td>
                     <td class="solicitud-class-{{descripcion_status}}">{{descripcion_status}}</td>
                     <td>{{nombre_proveedor}}</td>
                     <td>{{direccion_proveedor}}</td>
@@ -30,7 +30,7 @@
                     <td>{{correo_proveedor}}</td>
                     <td>{{descripcion_tipo_usuario}}</td>
                     <td>{{timeago created_at}}</td>
-                    <td class="registro-accion-table {{descripcion_status}}"><a href="/signup" class="btn btn-primary">Registrar usuario</a></td>
+                    <td class="registro-accion-table {{descripcion_status}}"><a href="/signup/{{id_solicitud_proveedor}}" class="btn btn-primary">Registrar usuario</a></td>
                 </tr>
             </tbody>
             {{/each}}

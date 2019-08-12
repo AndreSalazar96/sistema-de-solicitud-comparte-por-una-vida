@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="/proveedores/updateproveedor/{{listarProveedores.id_solicitud_proveedor}}" method="POST">
+                    <form action="/solicitud_proveedores/updateproveedor/{{listarProveedores.id_solicitud_proveedor}}" method="POST">
 
                         <div class="form-group">
                             <input type="text" name="nombre_proveedor" id="" placeholder="Nombre Completo"
@@ -56,10 +56,10 @@
                             <button class="btn btn-success">
                                 Aprobar solicitud de donacion
                             </button>
-                            <a href="/proveedores/enproceso/{{listarProveedores.id_solicitud_proveedor}}"
+                            <a href="/solicitud_proveedores/enproceso/{{listarProveedores.id_solicitud_proveedor}}"
                                 class="btn btn-warning">En
                                 Proceso</a>
-                            <a href="/proveedores/anular/{{listarProveedores.id_solicitud_proveedor}}"
+                            <a href="/solicitud_proveedores/anular/{{listarProveedores.id_solicitud_proveedor}}"
                                 class="btn btn-danger">Anular</a>
                         </div>
                     </form>

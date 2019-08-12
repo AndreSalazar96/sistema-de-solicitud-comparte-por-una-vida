@@ -392,6 +392,23 @@ FOREIGN KEY(id_status)
 REFERENCES status(id_status);
 
 
+CREATE TABLE tipo_solicitud(
+  id_tipo_solicitud INT (11),
+  descripcion VARCHAR(100)
+);
+
+alter table tipo_solicitud
+  ADD
+CONSTRAINT pk_id_tipo_solicitud
+  PRIMARY KEY(id_tipo_solicitud);
+
+ALTER TABLE tipo_solicitud
+MODIFY id_tipo_solicitud INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+DESCRIBE tipo_solicitud;
+
+
+
 CREATE TABLE donaciones_proveedores (
   id_donaciones_proveedores INT(11) NOT NULL,
   id_usuario INT(11),
@@ -440,3 +457,5 @@ ALTER TABLE  donaciones_proveedores
 fk_donaciones_proveedores_id_usuario
 FOREIGN KEY(id_usuario)
 REFERENCES users(id_usuario);
+
+
