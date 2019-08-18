@@ -14,29 +14,29 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="/solicitud_proveedores/updateproveedor/{{listarProveedores.id_solicitud_proveedor}}" method="POST">
+                    <form action="/solicitud_proveedores/updateproveedor/{{listarProveedores.id_solicitudes}}" method="POST">
 
                         <div class="form-group">
-                            <input type="text" name="nombre_proveedor" id="" placeholder="Nombre Completo"
-                                class="form-control" value="{{listarProveedores.nombre_proveedor}}" disabled>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" name="direccion_proveedor" placeholder="Ubicación" class="form-control"
-                                value="{{listarProveedores.direccion_proveedor}}" disabled>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="telefono_proveedor" placeholder="Teléfono" class="form-control"
-                                value="{{listarProveedores.telefono_proveedor}}" disabled>
-                        </div>
-                        <div class="form-group">
-                            <input type="mail" name="correo_proveedor" placeholder="Correo" class="form-control"
-                                value="{{listarProveedores.correo_proveedor}}" disabled>
+                            <input type="text" name="contacto" id="" placeholder="Nombre Completo"
+                                class="form-control" value="{{listarProveedores.contacto}}" disabled>
                         </div>
 
                         <div class="form-group">
-                            <input type="mail" name="empresa_proveedor" placeholder="Empresa (opcional)"
-                                class="form-control" value="{{listarProveedores.empresa_proveedor}}" disabled>
+                            <input type="text" name="ubicacion_solicitante" placeholder="Ubicación" class="form-control"
+                                value="{{listarProveedores.ubicacion_solicitante}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telefono" placeholder="Teléfono" class="form-control"
+                                value="{{listarProveedores.telefono}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input type="mail" name="correo" placeholder="Correo" class="form-control"
+                                value="{{listarProveedores.correo}}" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="mail" name="nombre_solicitante" placeholder="Empresa (opcional)"
+                                class="form-control" value="{{listarProveedores.nombre_solicitante}}" disabled>
                         </div>
                         <div class="form-group">
                             <textarea name="razon_proveedor"
@@ -56,10 +56,10 @@
                             <button class="btn btn-success">
                                 Aprobar solicitud de donacion
                             </button>
-                            <a href="/solicitud_proveedores/enproceso/{{listarProveedores.id_solicitud_proveedor}}"
+                            <a href="/solicitud_proveedores/enproceso/{{listarProveedores.id_solicitudes}}"
                                 class="btn btn-warning">En
                                 Proceso</a>
-                            <a href="/solicitud_proveedores/anular/{{listarProveedores.id_solicitud_proveedor}}"
+                            <a href="/solicitud_proveedores/anular/{{listarProveedores.id_solicitudes}}"
                                 class="btn btn-danger">Anular</a>
                         </div>
                     </form>

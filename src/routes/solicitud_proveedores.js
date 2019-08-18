@@ -4,15 +4,16 @@ const pool = require('../database'); //Pool refers to the connection to the data
 
 const { isLoggedIn, isNotloggedIn } = require('../lib/auth');
 
+//RENDERIZA LA VISTA Y LA LISTA DE SOLICITUD DE PROVEEDORES
 router.get('/lista_proveedores', isLoggedIn, async (req, res) => {
-    const listaSolicitudProveedores = await pool.query('SELECT solicitud_proveedor.id_solicitud_proveedor, status.descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitud_proveedor.nombre_proveedor, solicitud_proveedor.direccion_proveedor, solicitud_proveedor.razon_proveedor, solicitud_proveedor.telefono_proveedor, solicitud_proveedor.correo_proveedor, solicitud_proveedor.empresa_proveedor, solicitud_proveedor.created_at FROM solicitud_proveedor INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitud_proveedor.id_tipo_usuario INNER JOIN status ON status.id_status = solicitud_proveedor.id_status');
+    const listaSolicitudProveedores = await pool.query('SELECT solicitudes.id_solicitudes, STATUS .descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitudes.id_tipo_usuario, solicitudes.nombre_solicitante, solicitudes.ubicacion_solicitante, solicitudes.contacto, solicitudes.telefono, solicitudes.correo, solicitudes.create_at FROM solicitudes INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitudes.id_tipo_usuario INNER JOIN STATUS ON STATUS .id_status = solicitudes.id_status WHERE id_tipo_solicitud = 1');
     res.render('solicitud_proveedores/lista_proveedores', {listaSolicitudProveedores});
 });
 
 router.get('/realizarDonacion', isLoggedIn, async (req, res) => {
-    const datosDeUsuarioDonador = await pool.query('SELECT solicitud_proveedor.id_solicitud_proveedor, status.descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitud_proveedor.nombre_proveedor, solicitud_proveedor.direccion_proveedor, solicitud_proveedor.razon_proveedor, solicitud_proveedor.telefono_proveedor, solicitud_proveedor.correo_proveedor, solicitud_proveedor.empresa_proveedor, solicitud_proveedor.created_at FROM solicitud_proveedor INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitud_proveedor.id_tipo_usuario INNER JOIN status ON status.id_status = solicitud_proveedor.id_status');
+    const datosDeUsuarioDonador = await pool.query('SELECT solicitudes.id_solicitudes, STATUS .descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitudes.id_tipo_usuario, solicitudes.nombre_solicitante, solicitudes.ubicacion_solicitante, solicitudes.contacto, solicitudes.telefono, solicitudes.correo, solicitudes.create_at FROM solicitudes INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitudes.id_tipo_usuario INNER JOIN STATUS ON STATUS .id_status = solicitudes.id_status WHERE id_tipo_solicitud = 1');
     console.log(datosDeUsuarioDonador[0]);
-    res.render('proveedores/realizarDonacion', {datosDeUsuarioDonador: datosDeUsuarioDonador[0]});
+    res.render('solicitud_proveedores/realizarDonacion', {datosDeUsuarioDonador: datosDeUsuarioDonador[0]});
 });
 
 router.get('/proveedoresForm', isNotloggedIn, async (req, res) => {
@@ -26,48 +27,48 @@ router.get('/realizarDonacion', isLoggedIn, async (req, res) => {
 
 //Registro de solicitud de registro para donacion
 router.post('/proveedoresForm', isNotloggedIn, async (req, res) => {
-    const { nombre_proveedor, direccion_proveedor, empresa_proveedor, razon_proveedor, telefono_proveedor, correo_proveedor, id_tipo_usuario, id_status, created_at } = req.body;
+    const { contacto, ubicacion_solicitante, razon_proveedor, telefono, correo, nombre_solicitante, id_tipo_usuario, id_status, id_tipo_solicitud} = req.body;
     const datosProveedor = {
-        nombre_proveedor,
-        direccion_proveedor,
+        contacto,
+        ubicacion_solicitante,
         razon_proveedor,
-        telefono_proveedor,
-        correo_proveedor,
-        empresa_proveedor,
-        created_at,
+        telefono,
+        correo,
+        nombre_solicitante,
         id_tipo_usuario,
-        id_status
+        id_status,
+        id_tipo_solicitud
     }
-    await pool.query('INSERT INTO solicitud_proveedor set ?', [datosProveedor]);
+    await pool.query('INSERT INTO solicitudes set ?', [datosProveedor]);
     req.flash('success', 'Su solicitud ha sido enviada, se le estara notificando en las proximas horas mediante un correo electronico o llamada telefonica sus subscripción.');
     res.redirect('/solicitud_proveedores/proveedoresForm');
 });
 
 // Editar solicitud proveedor
-router.get('/updateproveedor/:id_solicitud_proveedor', async (req,res) => {
-    const {id_solicitud_proveedor} = req.params;
-    const listarProveedores = await pool.query('SELECT solicitud_proveedor.id_solicitud_proveedor, status.descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitud_proveedor.nombre_proveedor, solicitud_proveedor.direccion_proveedor, solicitud_proveedor.razon_proveedor, solicitud_proveedor.telefono_proveedor, solicitud_proveedor.correo_proveedor, solicitud_proveedor.empresa_proveedor, solicitud_proveedor.created_at FROM solicitud_proveedor INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitud_proveedor.id_tipo_usuario INNER JOIN status ON status.id_status = solicitud_proveedor.id_status WHERE id_solicitud_proveedor = ?' , [id_solicitud_proveedor]);
+router.get('/updateproveedor/:id_solicitudes', async (req,res) => {
+    const {id_solicitudes} = req.params;
+    const listarProveedores = await pool.query('SELECT solicitudes.id_solicitudes, status.descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitudes.contacto, solicitudes.ubicacion_solicitante, solicitudes.razon_proveedor, solicitudes.telefono, solicitudes.correo, solicitudes.nombre_solicitante, solicitudes.create_at FROM solicitudes INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitudes.id_tipo_usuario INNER JOIN status ON status.id_status = solicitudes.id_status WHERE id_solicitudes = ?' , [id_solicitudes]);
     console.log(listarProveedores[0]);
     res.render('solicitud_proveedores/updateproveedor', {listarProveedores: listarProveedores[0] });
 });
 
-router.post('/updateproveedor/:id_solicitud_proveedor', async (req,res) => {
-    const {id_solicitud_proveedor} = req.params;
-    await pool.query('UPDATE solicitud_proveedor SET id_status = 3 WHERE id_solicitud_proveedor = ?', [id_solicitud_proveedor]);
+router.post('/updateproveedor/:id_solicitudes', async (req,res) => {
+    const {id_solicitudes} = req.params;
+    await pool.query('UPDATE solicitudes SET id_status = 3 WHERE id_solicitudes = ?', [id_solicitudes]);
     req.flash('success', 'La solicitud de donacion a sido Aprobada');
     res.redirect('/solicitud_proveedores/lista_proveedores');
 });
 
-router.get('/anular/:id_solicitud_proveedor', async (req, res) => {
-    const { id_solicitud_proveedor } = req.params;
-    await pool.query('UPDATE solicitud_proveedor SET id_status = 4 WHERE id_solicitud_proveedor = ?', [id_solicitud_proveedor]);
+router.get('/anular/:id_solicitudes', async (req, res) => {
+    const { id_solicitudes } = req.params;
+    await pool.query('UPDATE solicitudes SET id_status = 4 WHERE id_solicitudes = ?', [id_solicitudes]);
     req.flash('success', 'La solicitud  de donacion a sido Anulada');
     res.redirect('/solicitud_proveedores/lista_proveedores');
 });
 
-router.get('/enproceso/:id_solicitud_proveedor', async (req, res) => {
-    const { id_solicitud_proveedor } = req.params;
-    await pool.query('UPDATE solicitud_proveedor SET id_status = 2 WHERE id_solicitud_proveedor = ?', [id_solicitud_proveedor]);
+router.get('/enproceso/:id_solicitudes', async (req, res) => {
+    const { id_solicitudes } = req.params;
+    await pool.query('UPDATE solicitudes SET id_status = 2 WHERE id_solicitudes = ?', [id_solicitudes]);
     req.flash('success', 'La solicitud de donacion a sido revisada y esta en proceso.');
     res.redirect('/solicitud_proveedores/lista_proveedores');
 });

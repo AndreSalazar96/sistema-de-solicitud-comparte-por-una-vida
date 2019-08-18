@@ -6,7 +6,7 @@ const passport = require("passport");
 const {isLoggedIn, isNotloggedIn} = require('../lib/auth');
 const pool = require('../database');
 
-router.get("/signup", isLoggedIn,async (req, res) => {
+router.get("/signup",async (req, res) => {
   const tipo_usuario = await pool.query('SELECT * FROM tipo_usuario');
   res.render("auth/signup", {tipo_usuario});
 });
