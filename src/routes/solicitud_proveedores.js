@@ -77,7 +77,7 @@ router.get('/enproceso/:id_solicitudes', async (req, res) => {
 //Registro de proveedor 
 router.get('/auth/signup/:id_solicitudes', async (req,res) => {
     const { id_solicitudes } = req.params;
-    const registro_proveedores = await pool.query('SELECT solicitudes.id_solicitudes, status.descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitudes.contacto, solicitudes.ubicacion_solicitante, solicitudes.razon_proveedor, solicitudes.telefono, solicitudes.correo, solicitudes.nombre_solicitante, solicitudes.create_at FROM solicitudes INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitudes.id_tipo_usuario INNER JOIN status ON status.id_status = solicitudes.id_status WHERE id_solicitudes = ?', [id_solicitudes]);
+    const registro_proveedores = await pool.query('SELECT solicitudes.id_solicitudes, status.descripcion_status, tipo_usuario.id_tipo_usuario, tipo_usuario.descripcion_tipo_usuario, solicitudes.contacto, solicitudes.ubicacion_solicitante, solicitudes.razon_proveedor, solicitudes.telefono, solicitudes.correo, solicitudes.nombre_solicitante, solicitudes.create_at FROM solicitudes INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitudes.id_tipo_usuario INNER JOIN status ON status.id_status = solicitudes.id_status WHERE id_solicitudes = ?', [id_solicitudes]);
     res.render('auth/signup', {registro_proveedores: registro_proveedores[0]});
 });
 
