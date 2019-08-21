@@ -2,27 +2,27 @@
     <div class="row">
         <div class="form-container col-md-12 p-4">
             <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
-                <h3 class="text-update-solicitudes">Lista de solicitud de proveedores y donaciones</h3>
+                <h3 class="text-update-solicitudes">Realiza tu donacion {{datosDeUsuarioDonador.contacto}}</h3>
             </nav>
             <form method="POST" action='/' class="form-donaciones col-md-12">
                 <div class="row">
                     <div class="col-6 p-2">
-                        <input type="text" class="form-control" placeholder="Nombre" name="nombre_proveedor" value="{{datosDeUsuarioDonador.nombre_proveedor}}" disabled>
+                        <input type="text" class="form-control" placeholder="Nombre" name="contacto" value="{{datosDeUsuarioDonador.contacto}}" disabled>
                     </div>
                     <div class="col-6 p-2">
-                        <input type="text" class="form-control" placeholder="Direccion de salida de caja" name="direccion_proveedor" value={{datosDeUsuarioDonador.direccion_proveedor}} disabled>
+                        <input type="text" class="form-control" placeholder="Direccion de salida de caja" name="ubicacion_solicitante" value={{datosDeUsuarioDonador.ubicacion_solicitante}} disabled>
                     </div>
                     <div class="col-6 p-2">
                         <input type="text" class="form-control" placeholder="Direccion de entrega de caja" name="direccion_entrega">
                     </div>
                     <div class="col-6 p-2">
-                        <input type="text" class="form-control" placeholder="Telefono" name="telefono_proveedor" value="{{datosDeUsuarioDonador.telefono_proveedor}}" disabled>
+                        <input type="text" class="form-control" placeholder="Telefono" name="telefono" value="{{datosDeUsuarioDonador.telefono}}" disabled>
                     </div>
                     <div class="col-6 p-2">
-                        <input type="text" class="form-control" placeholder="Correo" name="correo_proveedor" value="{{datosDeUsuarioDonador.correo_proveedor}}" disabled>
+                        <input type="text" class="form-control" placeholder="Correo" name="correo" value="{{datosDeUsuarioDonador.correo}}" disabled>
                     </div>
                     <div class="col-6 p-2">
-                        <input type="text" class="form-control" placeholder="Identificacion de caja">
+                        <input type="text" class="form-control" placeholder="Identificacion de caja (requerido)" required>
                     </div>
                     <div class="col-12 p-2">
                         <textarea class="form-control" placeholder="Productos a donar"></textarea>

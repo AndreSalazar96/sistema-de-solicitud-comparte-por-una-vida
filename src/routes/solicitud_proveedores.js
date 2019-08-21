@@ -74,21 +74,28 @@ router.get('/enproceso/:id_solicitudes', async (req, res) => {
 });
 
 
+//Registro de proveedor 
+router.get('/auth/signup/:id_solicitudes', async (req,res) => {
+    const { id_solicitudes } = req.params;
+    const registro_proveedores = await pool.query('SELECT solicitudes.id_solicitudes, status.descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitudes.contacto, solicitudes.ubicacion_solicitante, solicitudes.razon_proveedor, solicitudes.telefono, solicitudes.correo, solicitudes.nombre_solicitante, solicitudes.create_at FROM solicitudes INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitudes.id_tipo_usuario INNER JOIN status ON status.id_status = solicitudes.id_status WHERE id_solicitudes = ?', [id_solicitudes]);
+    res.render('auth/signup', {registro_proveedores: registro_proveedores[0]});
+});
+
 //Guardar datos de donacion
 router.post('/proveedoresForm', isNotloggedIn, async (req, res) => {
-    const { nombre_proveedor, direccion_proveedor, empresa_proveedor, razon_proveedor, telefono_proveedor, correo_proveedor, id_tipo_usuario, id_status, created_at } = req.body;
+    const { contacto, ubicacion_solicitante, nombre_solicitante, razon_proveedor, telefono, correo, id_tipo_usuario, id_status, created_at } = req.body;
     const datosProveedor = {
-        nombre_proveedor,
-        direccion_proveedor,
+        contacto,
+        ubicacion_solicitante,
         razon_proveedor,
-        telefono_proveedor,
-        correo_proveedor,
-        empresa_proveedor,
+        telefono,
+        correo,
+        nombre_solicitante,
         created_at,
         id_tipo_usuario,
         id_status
     }
-    await pool.query('INSERT INTO solicitud_proveedor set ?', [datosProveedor]);
+    await pool.query('INSERT INTO solicitudes set ?', [datosProveedor]);
     req.flash('success', 'Su solicitud ha sido enviada, se le estara notificando en las proximas horas mediante un correo electronico o llamada telefonica sus subscripción.');
     res.redirect('/solicitud_proveedores/proveedoresForm'); 
 });

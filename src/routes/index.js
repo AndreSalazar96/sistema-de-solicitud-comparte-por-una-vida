@@ -13,10 +13,11 @@ router.get('/',  isNotloggedIn, (req, res) => {
 //Registro de solicitud de ayuda humanitaria
 router.post('/', isNotloggedIn, async (req,res) =>{
     console.log(req.body);
-    const {id_status, id_tipo_usuario, nombre_solicitante , ubicacion_solicitante, contacto, telefono, correo} = req.body;
+    const {id_status, id_tipo_usuario, id_tipo_solicitud, nombre_solicitante , ubicacion_solicitante, contacto, telefono, correo} = req.body;
     const new_solicitud = {
         id_status,
         id_tipo_usuario,
+        id_tipo_solicitud,
         nombre_solicitante,
         ubicacion_solicitante,
         contacto,

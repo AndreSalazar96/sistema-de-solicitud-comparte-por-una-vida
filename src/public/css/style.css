@@ -13,7 +13,7 @@ footer.page-footer.font-small.blue.pt-4 {
 }
 ul.nav.flex-column {
   height: 100vh;
-  width: 12%;
+  width: 16%;
 }
 
 .alert-success {
@@ -338,3 +338,76 @@ form.form-donaciones.col-md-12{
   display: flex;
   justify-content: center;
 }
+
+.nav.flex-column.main-vertical-menu a{
+  color: #607D8B;
+  text-decoration: none;
+  background-color: transparent;
+  margin: 10px 0px 0px 0px;
+}
+
+.nav.flex-column.main-vertical-menu a:hover{
+  color: #00a1bc;
+}
+
+ul.nav.flex-column.main-vertical-menu a.nav-link.nav-link:hover {
+  background-color: #353535;
+}
+
+a.nav-link.nav-link.user-a:before {
+  content: url(/img/user-icon.png);
+  margin: 10px;
+  position: relative;
+  top: 7px;
+}
+
+a.nav-link.nav-link.user-box:before {
+  content: url(/img/box.png);
+  margin: 10px;
+  position: relative;
+  top: 7px;
+}
+
+a.nav-link.nav-link.user-list:before {
+  content: url(/img/list.png);
+  margin: 10px;
+  position: relative;
+  top: 7px;
+}
+
+
+a.nav-link.nav-link.user-request:before {
+  content: url(/img/request.png);
+  margin: 10px;
+  position: relative;
+  top: 7px;
+}
+
+a.nav-link.nav-link.user-help:before {
+  content: url(/img/help.png);
+  margin: 10px;
+  position: relative;
+  top: 7px;
+}
+
+a.nav-link.nav-link.user-humanitary:before {
+  content: url(/img/humanitary.png);
+  margin: 10px;
+  position: relative;
+  top: 7px;
+}
+
+a.nav-link.nav-link.user-donation:before {
+  content: url(/img/donation.png);
+  margin: 10px;
+  position: relative;
+  top: 7px;
+}
+
+a.nav-link.nav-link.user-providers:before {
+  content: url(/img/providers.png);
+  margin: 10px;
+  position: relative;
+  top: 7px;
+}
+
