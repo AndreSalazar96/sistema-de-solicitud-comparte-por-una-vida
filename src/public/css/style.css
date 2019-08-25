@@ -126,6 +126,11 @@ div.row.form-subcontainer-user {
 
 nav.navbar.navbar-expand-lg.navbar-light.bg-light.navbar-add-user {
   margin-bottom: 5%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: #da6f94 !important;
+  color: #fff;
 }
 
 h3.text-update-user {

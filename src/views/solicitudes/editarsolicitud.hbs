@@ -49,11 +49,17 @@
                             <input type="text" name="id_tipo_usuario" id="" placeholder="id_tipo_usuario"
                                 class="form-control" value="{{solicitud.descripcion_tipo_usuario}}" disabled>
                         </div>
+
+                        <div class="form-group">
+                            <textarea name="razon_proveedor" placeholder="Escribenos tu necesidad"
+                                class="form-control" disabled>{{solicitud.razon_proveedor}}</textarea>
+                        </div>
                         <div class="form-group">
                             <button class="btn btn-success">
                                 Aprobar al solicitante {{solicitud.nombre_solicitante}}
                             </button>
-                             <a href="/solicitudes/enproceso/{{solicitud.id_solicitudes}}" class="btn btn-warning">En Proceso</a>
+                            <a href="/solicitudes/enproceso/{{solicitud.id_solicitudes}}" class="btn btn-warning">En
+                                Proceso</a>
                             <a href="/solicitudes/anular/{{solicitud.id_solicitudes}}" class="btn btn-danger">Anular</a>
                         </div>
                     </form>
