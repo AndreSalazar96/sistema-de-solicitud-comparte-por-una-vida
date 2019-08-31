@@ -18,7 +18,7 @@ router.get('/user', isLoggedIn, async (req, res) => {
 
   });
 
-  router.post('/updateuser/:id_usuario', async (req,res) => {
+  router.post('/updateuser/:id_usuario', isLoggedIn, async (req,res) => {
     const {id_usuario} = req.params;
     const {fullname, username, nombre_razon, id_tipo_usuario, telefono, correo, direccion} = req.body;
     const editUser = {
@@ -32,6 +32,7 @@ router.get('/user', isLoggedIn, async (req, res) => {
     };
     console.log(editUser);
     await pool.query('UPDATE users set ? WHERE id_usuario = ?', [editUser, id_usuario]);
+    req.flash('success', 'Usuario actualizado');
     res.redirect('/users/user')
   });
 

@@ -11,6 +11,7 @@ router.get('/realizarDonacion', isLoggedIn, async (req, res) => {
 router.get('/realizarDonacion/:id_usuario', async (req, res) => {
     const  { id_usuario } = req.params;
     const usuarioDonador = await pool.query('SELECT * FROM users WHERE id_usuario = ?', [id_usuario]);
+    console.log(usuarioDonador[0])
     res.render('donaciones/realizarDonacion', {usuarioDonador: usuarioDonador[0]});
 });
 
