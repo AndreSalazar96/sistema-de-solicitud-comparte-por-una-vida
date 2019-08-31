@@ -59,6 +59,7 @@ app.use('/solicitud_proveedores', require('./routes/solicitud_proveedores'));
 app.use('/users', require('./routes/listusers'));
 app.use('/solicitudes', require('./routes/listsolicitudes'));
 app.use('/tipo_producto', require('./routes/tipo_producto'));
+app.use('/donaciones', require('./routes/donaciones'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));
