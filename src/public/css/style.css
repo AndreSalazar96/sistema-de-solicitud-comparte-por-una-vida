@@ -1,10 +1,11 @@
-body{
+body {
   font-family: inherit !important;
 }
 
 .body-container {
   display: flex;
   justify-content: center;
+  /* height: 100vh; */
 }
 
 ul.nav.flex-column,
@@ -12,7 +13,7 @@ footer.page-footer.font-small.blue.pt-4 {
   background-color: #f8f9fa;
 }
 ul.nav.flex-column {
-  height: 100vh;
+  height: inherit;
   width: 16%;
 }
 
@@ -257,30 +258,29 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.main-horizontal-menu {
 
 /* TABS INDEX STYLE */
 li.active.tab.tab-one,
-li.tab.tab-two{
+li.tab.tab-two {
   margin: 10px;
-} 
+}
 
 li.active.tab.tab-one a,
-li.tab.tab-two a{
+li.tab.tab-two a {
   text-decoration: none;
   color: #00a1bc;
   font-size: 17px;
   font-family: inherit;
   transition: 0.3s;
-} 
+}
 
 li.active.tab.tab-one a:hover,
-li.tab.tab-two a:hover{
+li.tab.tab-two a:hover {
   text-decoration: none;
   color: #d96f93;
   font-size: 17px;
   font-family: inherit;
   transition: 0.3s;
-} 
+}
 
-
-ul.nav.nav-tabs.nav-justified.nav-inline{
+ul.nav.nav-tabs.nav-justified.nav-inline {
   display: flex;
   justify-content: center;
 }
@@ -290,24 +290,21 @@ input.error {
 }
 
 small.required {
-  color:#f00;
+  color: #f00;
 }
 
-
-li.nav-item.li-donar-redirect a{
+li.nav-item.li-donar-redirect a {
   font-weight: bold;
   color: #d96f93 !important;
   transition: 0.2s;
 }
 
-
-li.nav-item.li-donar-redirect a:hover{
+li.nav-item.li-donar-redirect a:hover {
   color: #fff !important;
   transition: 0.2s;
-  background-color: #d96f93; 
+  background-color: #d96f93;
   border-radius: 5px;
 }
-
 
 td.solicitud-class-Anulada {
   color: red;
@@ -335,7 +332,7 @@ p.description.m-2 {
   overflow: hidden;
 }
 
-form.form-donaciones.col-md-12{
+form.form-donaciones.col-md-12 {
   margin-top: 3%;
 }
 
@@ -345,19 +342,15 @@ form.form-donaciones.col-md-12{
   margin: 0px 0px 40px 0px;
 }
 
-.nav.flex-column.main-vertical-menu a{
-  color: #607D8B;
+.nav.flex-column.main-vertical-menu a {
+  color: #607d8b;
   text-decoration: none;
   background-color: transparent;
   margin: 10px 0px 0px 0px;
 }
 
-.nav.flex-column.main-vertical-menu a:hover{
+.nav.flex-column.main-vertical-menu a:hover {
   color: #00a1bc;
-}
-
-ul.nav.flex-column.main-vertical-menu a.nav-link.nav-link:hover {
-  background-color: #353535;
 }
 
 a.nav-link.nav-link.user-a:before {
@@ -380,7 +373,6 @@ a.nav-link.nav-link.user-list:before {
   position: relative;
   top: 7px;
 }
-
 
 a.nav-link.nav-link.user-request:before {
   content: url(/img/request.png);
@@ -417,14 +409,48 @@ a.nav-link.nav-link.user-providers:before {
   top: 7px;
 }
 
-.card.my-2.p-2 {
-  display: inline-flex;
+a.nav-link.username:before {
+  content: url(/img/usernickname.png);
+  margin-right: 10px;
+}
+
+a.nav-link.logout:before {
+  content: url(/img/poweroff.png);
+  margin-right: 5px;
+  position: relative;
+  top: 3px;
+}
+
+a.nav-link.logout {
+  margin-left: 15px;
+}
+
+div#products {
+  display: flex;
 }
 
 .card {
   border-bottom: 2px solid rgba(162, 162, 162, 0.5);
 }
 
-.card.my-2.p-2{
+.card.my-2.p-2 {
   margin: 10px;
+}
+
+/* Form donaciones */
+/* form.form-donaciones.col-md-12,
+div.aceptar-container {
+  display: none;
+} */
+
+.form-group.aceptar-container {
+  margin: 20px 0px 20px 0px;
+  display: flex;
+    justify-content: center;
+}
+
+a.nav-link.username {
+  background-color: #00a1bc;
+  border-radius: 3px;
+  color: #fff !important;
 }

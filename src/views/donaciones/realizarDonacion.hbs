@@ -4,78 +4,85 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
                 <h3 class="text-update-solicitudes">Realiza tu donacion {{usuarioDonador.fullname}}</h3>
             </nav>
-            {{!-- <form method="POST" action='/' class="form-donaciones col-md-12"> --}}
-            <div class="row">
-                <div class="col-6 p-2">
-                    <input type="text" class="form-control" placeholder="Nombre" name="contacto"
-                        value="{{usuarioDonador.fullname}}" disabled>
-                </div>
-                <div class="col-6 p-2">
-                    <input type="text" class="form-control" placeholder="Direccion de salida de caja"
-                        name="ubicacion_solicitante" value="{{usuarioDonador.direccion}}">
-                </div>
-                <div class="col-6 p-2">
-                    <input type="text" class="form-control" placeholder="Direccion de entrega de caja"
-                        name="direccion_entrega" value="Edif. El Nacional Los Cortijos" disabled>
-                </div>
-                <div class="col-6 p-2">
-                    <input type="text" class="form-control" placeholder="Telefono" name="telefono"
-                        value="{{usuarioDonador.telefono}}" disabled>
-                </div>
-                <div class="col-6 p-2">
-                    <input type="text" class="form-control" placeholder="Correo" name="correo"
-                        value="{{usuarioDonador.correo}}" disabled>
-                </div>
-                <div class="col-6 p-2">
-                    <input type="text" class="form-control" placeholder="Identificacion de caja (requerido)">
-                </div>
-                <div class="container">
-                    <h1 class="text-center m-3">Agrega los Productos a Donar</h1>
-                    <div class="row justify-content-md-center">
-                        <div class="col col-md-8 col-lg-6">
-                            <form id="addProductForm">
-                                <div class="form-group">
-                                    <label for="productName">Nombre del producto</label>
-                                    <input type="text" class="form-control" id="productName">
-                                </div>
-                                <div class="form-group">
-                                    <label for="fechCaduc">Fecha Caducidad</label>
-                                    <input type="date" class="form-control" id="fechCaduc">
-                                </div>
-                                <div class="form-group">
-                                    <label for="cantidad">Cantidad</label>
-                                    <input type="number" class="form-control" id="cantidad">
-                                </div>
-                                <div class="form-group">
-                                    <label for="descripcion">Descripcion</label>
-                                    <textarea name="descripcion" class="form-control" id="descripcion"></textarea>
-                                </div>
-                                <button id="btnSubmit" type="submit" class="btn btn-primary">Agreagr Producto</button>
-                            </form>
-                        </div>
+            <div class="container">
+                <h1 class="text-center m-3">Agrega los Productos a Donar</h1>
+                <div class="row justify-content-md-center">
+                    <div class="col col-md-8 col-lg-6">
+                        <form id="addProductForm" method="POST" action="/">
+                            <div class="form-group">
+                                <label for="productName">Nombre del producto</label>
+                                <input type="text" class="form-control" id="productName" name="productname">
+                            </div>
+                            <div class="form-group">
+                                <label for="fechCaduc">Fecha Caducidad</label>
+                                <input type="date" class="form-control" id="fechCaduc" name="fechacaduc">
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad</label>
+                                <input type="number" class="form-control" id="cantidad" name="cantidad">
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripcion</label>
+                                <textarea name="descripcion" class="form-control" id="descripcion"
+                                    name="descrip"></textarea>
+                            </div>
+                            <button id="btnSubmit" type="submit" class="btn btn-primary"
+                                value="Agregar Producto">Agregar Producto</button>
 
-                    </div>
-
-                    <div class="row justify-content-md-center">
-                        <div class="col col-md-8 col-lg-6">
-                            <hr>
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-md-center">
-                        <div class="col col-md-8 col-lg-6" id="products">
-                           
-                        </div>
+                        </form>
                     </div>
                 </div>
+                <div class="row justify-content-md-center">
+                    <div class="col col-md-8 col-lg-6">
+                        <hr>
+                    </div>
+                </div>
+
             </div>
-
-        </div>
-        <div class="col-12 p-2 btn-donacion-container">
-            <button class="btn btn-primary btn-donacion-enviar">Enviar Donacion</button>
+            <form method="POST" action='/donaciones/realizarDonaciones/' class="form-donaciones col-md-12">
+                <div class="row justify-content-md-center">
+                    <div class="col col-md-8 col-lg-6" id="products">
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 p-2">
+                        <label for="nombrecompleto">Nombre completo</label>
+                        <input id="nombrecompleto" type="text" class="form-control" placeholder="Nombre" name="contacto"
+                            value="{{usuarioDonador.fullname}}">
+                    </div>
+                    <div class="col-6 p-2">
+                        <label for="direccionsalida">Direccion de salida de caja</label>
+                        <input id="direccionsalida" type="text" class="form-control"
+                            placeholder="Direccion de salida de caja" name="ubicacion_solicitante"
+                            value="{{usuarioDonador.direccion}}">
+                    </div>
+                    <div class="col-6 p-2">
+                        <label for="direccionentrega">Direccion de entrega</label>
+                        <input id="direccionentrega" type="text" class="form-control"
+                            placeholder="Direccion de entrega de caja" name="direccion_entrega"
+                            value="Edif. El Nacional Los Cortijos">
+                    </div>
+                    <div class="col-6 p-2">
+                        <label for="telefono">Telefono</label>
+                        <input id="telefono" type="text" class="form-control" placeholder="Telefono" name="telefono"
+                            value="{{usuarioDonador.telefono}}">
+                    </div>
+                    <div class="col-6 p-2">
+                        <label for="correo">Correo Electronico</label>
+                        <input id="correo" type="text" class="form-control" placeholder="Correo" name="correo"
+                            value="{{usuarioDonador.correo}}">
+                    </div>
+                    <div class="col-6 p-2">
+                        <label for="identificacionCaja">Identificacion de caja (requerido)</label>
+                        <input id="identificacionCaja" type="text" class="form-control"
+                            placeholder="Identificacion de caja (requerido)" name="identidicacioncaja" required>
+                    </div>
+                </div>
+                <div class="col-12 p-2 btn-donacion-container">
+                    <button class="btn btn-primary btn-donacion-enviar">Enviar Donacion</button>
+                </div>
+            </form>
         </div>
     </div>
-    {{!-- </form> --}}
-</div>
-</div>
 </div>

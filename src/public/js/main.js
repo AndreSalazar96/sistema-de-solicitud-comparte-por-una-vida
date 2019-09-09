@@ -71,23 +71,23 @@ var counter = (function () {
     }
 })()
 
-function Product(name, date, cantidad, descripcion) {
+function Product(productName, fechacaduc, cantidadproduct, descripcionproduct) {
     this.id = +new Date()
-    this.name = name
-    this.date = date
-    this.cantidad = cantidad
-    this.descripcion = descripcion
+    this.productName = productName
+    this.fechacaduc = fechacaduc
+    this.cantidadproduct = cantidadproduct
+    this.descripcionproduct = descripcionproduct
     this.count = counter.increment()
 }
 
 function UI() { }
 
-UI.prototype.addProduct = function (name, date, cantidad, descripcion) {
-    var product = new Product(name, date, cantidad, descripcion),
+UI.prototype.addProduct = function (productName, fechacaduc, cantidadproduct, descripcionproduct) {
+    var product = new Product(productName, fechacaduc, cantidadproduct, descripcionproduct),
         html = document.createElement('div')
 
     html.id = product.id
-    html.className = 'card my-2 p-2'
+    html.className = 'card my-2 p-2 col-md-6'
     html.innerHTML =
         '<div class="card-title">Producto &#8470; ' +
         product.count +
@@ -96,21 +96,21 @@ UI.prototype.addProduct = function (name, date, cantidad, descripcion) {
         '</div>' +
         '<div class="form-group">' +
         '<input type="text" class="form-control" value="' +
-        product.name +
-        '" disabled>' +
+        product.productName +
+        '" name="productname">' +
         '</div>' +
         '<div class="form-group">' +
         '<input type="date" class="form-control" value="' +
-        product.date +
-        '" disabled>' +
+        product.fechacaduc +
+        '" name="fechacaduc">' +
         '</div>' +
         '<div class="form-group">' +
         '<input type="number" class="form-control" value="' +
-        product.cantidad +
-        '" disabled>' +
+        product.cantidadproduct +
+        '" name="cantidadproduct">' +
         '</div>' +
         '<div class="form-group">' +
-        '<textarea name="descripcion" class="form-control" disabled>' + product.descripcion + '</textarea>' +
+        '<textarea name="descripcion" class="form-control" name="descripcionproduct">' + product.descripcionproduct + '</textarea>' +
         '</br>' +
         '<button class="btn btn-danger" data-id="' +
         product.id +
@@ -136,18 +136,18 @@ UI.prototype.deleteProduct = function (id) {
 addProductFormEl.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    var name = productNameInputEl.value,
-        date = productDateInputEl.value
-        cantidad = productCantInputEl.value
-        descripcion = productDescriptiEl.value
+    var productName = productNameInputEl.value,
+        fechacaduc = productDateInputEl.value
+        cantidadproduct = productCantInputEl.value
+        descripcionproduct = productDescriptiEl.value
 
-    if (!name || !date || !cantidad || !descripcion) {
+    if (!productName || !fechacaduc || !cantidadproduct || !descripcionproduct) {
         return false
     }
 
     var ui = new UI()
-    ui.addProduct(name, date, cantidad, descripcion)
-    alert('scasc');
+    ui.addProduct(productName, fechacaduc, cantidadproduct, descripcionproduct)
+    // alert('Se agrego el producto ' + productName);
     ui.clearFormFields()
     
 })
@@ -161,3 +161,20 @@ productsEl.addEventListener('click', function (e) {
 })
 
 
+// Mostrar formulario
+
+// function verificarDatos(){
+// 	$('input#btnSubmit').click(function(){
+// 		$('div.aceptar-container').css({'display':'block'});
+// 	});
+// }
+
+// verificarDatos();
+
+// function aceptarDatos(){
+// 	$('button#aceptar').click(function(){
+// 		$('form.form-donaciones.col-md-12').css({'display':'block'});
+// 	});
+// }
+
+// aceptarDatos();
