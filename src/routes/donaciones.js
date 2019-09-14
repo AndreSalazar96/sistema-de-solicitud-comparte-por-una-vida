@@ -9,24 +9,24 @@ router.get('/realizarDonacion', isLoggedIn, async (req, res) => {
 });
 
 router.get('/realizarDonacion/:id_usuario', async (req, res) => {
-    const  { id_usuario } = req.params;
+    const { id_usuario } = req.params;
     const usuarioDonador = await pool.query('SELECT * FROM users WHERE id_usuario = ?', [id_usuario]);
-    res.render('donaciones/realizarDonacion', {usuarioDonador: usuarioDonador[0]});
+    res.render('donaciones/realizarDonacion', { usuarioDonador: usuarioDonador[0] });
 });
 
 //Guardar datos de donacion
 router.post('/realizarDonaciones', isLoggedIn, async (req, res) => {
-    const { productname, fechacaduc, cantidadproduct, descripcionproduct, contacto, ubicacion_solicitante, direccion_entrega, telefono, correo, identidicacioncaja} = req.boy
+    const { productname, fechacaduc, cantidadproduct, descripcionproduct, contacto, ubicacion_solicitante, direccion_entrega, telefono, correo, identidicacioncaja } = req.body
     const nuevaDonacion = {
-        productname, 
-        fechacaduc, 
-        cantidadproduct, 
-        descripcionproduct, 
-        contacto, 
-        ubicacion_solicitante, 
-        direccion_entrega, 
-        telefono, 
-        correo, 
+        productname,
+        fechacaduc,
+        cantidadproduct,
+        descripcionproduct,
+        contacto,
+        ubicacion_solicitante,
+        direccion_entrega,
+        telefono,
+        correo,
         identidicacioncaja
     }
 
