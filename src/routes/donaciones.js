@@ -27,11 +27,13 @@ router.post('/realizarDonaciones', isLoggedIn, async (req, res) => {
         direccion_entrega,
         telefono,
         correo,
-        identidicacioncaja
+        identidicacioncaja,
+        id_usuario: req.user.id_usuario
     }
 
-    console.log(nuevaDonacion);
-    res.send('recibido');
+        await pool.query("INSERT INTO donaciones (productname, fechacaduc, cantidadproduct, descripcionproduct, contacto, ubicacion_solicitante, direccion_entrega, telefono, correo, identidicacioncaja) VALUES ('" + productname + "', '" + fechacaduc + "', '" + cantidadproduct + "', '" + descripcionproduct + "', '" + contacto + "', '" + ubicacion_solicitante + "', '" + direccion_entrega + "', '" + telefono + "', '" + correo + "', '" + identidicacioncaja + "');");
+        console.log(nuevaDonacion);
+        res.send('recibido');    
 });
 
 

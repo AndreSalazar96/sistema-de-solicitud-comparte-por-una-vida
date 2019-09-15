@@ -110,7 +110,7 @@ UI.prototype.addProduct = function (productName, fechacaduc, cantidadproduct, de
         '" name="cantidadproduct">' +
         '</div>' +
         '<div class="form-group">' +
-        '<textarea name="descripcion" class="form-control" name="descripcionproduct">' + product.descripcionproduct + '</textarea>' +
+        '<textarea class="form-control" name="descripcionproduct">' + product.descripcionproduct + '</textarea>' +
         '</br>' +
         '<button class="btn btn-danger" data-id="' +
         product.id +
@@ -159,22 +159,3 @@ productsEl.addEventListener('click', function (e) {
         ui.deleteProduct(e.target.getAttribute('data-id'))
     }
 })
-
-
-// Mostrar formulario
-
-// function verificarDatos(){
-// 	$('input#btnSubmit').click(function(){
-// 		$('div.aceptar-container').css({'display':'block'});
-// 	});
-// }
-
-// verificarDatos();
-
-// function aceptarDatos(){
-// 	$('button#aceptar').click(function(){
-// 		$('form.form-donaciones.col-md-12').css({'display':'block'});
-// 	});
-// }
-
-// aceptarDatos();

@@ -432,6 +432,19 @@ ALTER TABLE `usuario_solicitud`
   ADD CONSTRAINT `fk_usuario_solicitud_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `users` (`id_usuario`);
 COMMIT;
 
+ALTER TABLE `donaciones`
+  ADD CONSTRAINT `fk_id_usuario_users_id_usuario_donaciones` FOREIGN KEY (`id_usuario`) REFERENCES `users` (`id_usuario`);
+
+ALTER TABLE `donaciones`
+  ADD CONSTRAINT `pk_donaciones` PRIMARY KEY (`id_donaciones`);
+
+  --
+ALTER TABLE `donaciones`
+  MODIFY `id_donaciones` int(11) NOT NULL AUTO_INCREMENT;
+
+  ALTER TABLE `donaciones`
+    ADD CONSTRAINT `fk_id_status_donaciones_id_status_status` FOREIGN KEY (`id_status`) REFERENCES `status` (`id_status`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
