@@ -30,10 +30,16 @@ router.post('/realizarDonaciones', isLoggedIn, async (req, res) => {
         identidicacioncaja,
         id_usuario: req.user.id_usuario
     }
+    if (Array.isArray(nuevaDonacion.productname)) {
+        for (var i = 0; i < nuevaDonacion.productname.length; i++) {
+            await pool.query('INSERT INTO donaciones set ?', { productname: productname[i], fechacaduc: fechacaduc[i], cantidadproduct: cantidadproduct[i], descripcionproduct: descripcionproduct[i], contacto, ubicacion_solicitante, direccion_entrega, telefono, correo, identidicacioncaja, id_usuario: req.user.id_usuario });
+        }
+    } else {
+        await pool.query('INSERT INTO donaciones set ?', [nuevaDonacion]);
+    }
+    req.flash('success', 'Donacion guardada satisfactoriamente'); //Modulo de connect flash
+    res.redirect('/donaciones/realizarDonacion/');
 
-        await pool.query("INSERT INTO donaciones (productname, fechacaduc, cantidadproduct, descripcionproduct, contacto, ubicacion_solicitante, direccion_entrega, telefono, correo, identidicacioncaja) VALUES ('" + productname + "', '" + fechacaduc + "', '" + cantidadproduct + "', '" + descripcionproduct + "', '" + contacto + "', '" + ubicacion_solicitante + "', '" + direccion_entrega + "', '" + telefono + "', '" + correo + "', '" + identidicacioncaja + "');");
-        console.log(nuevaDonacion);
-        res.send('recibido');    
 });
 
 

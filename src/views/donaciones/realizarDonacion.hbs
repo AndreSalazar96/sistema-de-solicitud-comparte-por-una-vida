@@ -11,19 +11,19 @@
                         <form id="addProductForm" method="POST" action="/">
                             <div class="form-group">
                                 <label for="productName">Nombre del producto</label>
-                                <input type="text" class="form-control" id="productName" name="productname">
+                                <input type="text" class="form-control" id="productName" name="productname" onInput="validateInput()" >
                             </div>
                             <div class="form-group">
                                 <label for="fechCaduc">Fecha Caducidad</label>
-                                <input type="date" class="form-control" id="fechCaduc" name="fechacaduc">
+                                <input type="date" class="form-control" id="fechCaduc" name="fechacaduc" onInput="validateInput()" >
                             </div>
                             <div class="form-group">
                                 <label for="cantidad">Cantidad</label>
-                                <input type="number" class="form-control" id="cantidad" name="cantidad">
+                                <input type="number" class="form-control" id="cantidad" name="cantidad"  onInput="validateInput()">
                             </div>
                             <div class="form-group">
                                 <label for="descripcion">Descripcion</label>
-                                <textarea class="form-control" id="descripcion" name="descripcionproduct"></textarea>
+                                <textarea class="form-control" id="descripcion" name="descripcionproduct"  onInput="validateInput()"></textarea>
                             </div>
                             <button id="btnSubmit" type="submit" class="btn btn-primary"
                                 value="Agregar Producto">Agregar Producto</button>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="col-12 p-2 btn-donacion-container">
-                    <button class="btn btn-primary btn-donacion-enviar">Enviar Donacion</button>
+                    <button id="btn-donaciones" class="btn btn-primary btn-donacion-enviar">Enviar Donacion</button>
                 </div>
             </form>
         </div>

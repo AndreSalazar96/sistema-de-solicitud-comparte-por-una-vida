@@ -159,3 +159,15 @@ productsEl.addEventListener('click', function (e) {
         ui.deleteProduct(e.target.getAttribute('data-id'))
     }
 })
+
+
+// Disable button donacion
+
+function validateInput(){
+    document.getElementById('btn-donaciones').disabled = !document.getElementById('productName').value.length;
+    document.getElementById('btn-donaciones').disabled = !document.getElementById('fechCaduc').value.length;
+    document.getElementById('btn-donaciones').disabled = !document.getElementById('cantidad').value.length;
+    document.getElementById('btn-donaciones').disabled = !document.getElementById('descripcion').value.length;  
+}
+
+validateInput();
