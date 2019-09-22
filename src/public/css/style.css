@@ -126,7 +126,7 @@ div.row.form-subcontainer-user {
 }
 
 nav.navbar.navbar-expand-lg.navbar-light.bg-light.navbar-add-user {
-  margin-bottom: 5%;
+  /* margin-bottom: 5%; */
   text-align: center;
   display: flex;
   justify-content: center;
@@ -421,6 +421,14 @@ a.nav-link.logout:before {
   top: 3px;
 }
 
+a.nav-link.user-lista-donation:before {
+  content: url(/img/listdona.png);
+  margin-right: 5px;
+  position: relative;
+  top: 3px;
+}
+
+listdona
 a.nav-link.logout {
   margin-left: 15px;
 }
@@ -467,3 +475,22 @@ a.nav-link.username {
   padding-left: 0 !important;
   padding-right: 0 !important;
 } */
+
+/* Image avatar style */
+
+.image-avatar-container.container {
+  padding: 10px;
+  margin: 10px;
+}
+
+.image-subcontainer.row{
+  display: flex;
+    justify-content: center;
+}
+
+img.avatar_image{
+  border-radius: 100%;
+  width: auto;
+  max-width: 50%;
+  max-height: 100%;
+}

@@ -16,6 +16,11 @@
                     </div>
                     <div class="card-body">
                         <form action="/users/updateuser/{{listusers.id_usuario}}" method="POST">
+                            <div class="image-avatar-container container">
+                                <div class="image-subcontainer row">
+                                    <img src="/uploads/{{listusers.avatar_image}}" name="avatar_image" alt="" class="avatar_image">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <input type="text" name="fullname" placeholder="Nombre Completo" class="form-control"
                                     autofocus value="{{listusers.fullname}}" >

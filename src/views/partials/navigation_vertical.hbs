@@ -1,4 +1,4 @@
-{{#if user}}
+{{#if user.id_tipo_usuario }}
 <ul class="nav flex-column main-vertical-menu">
   <li class="nav-item li-usuarios">
     <a class="nav-link nav-link user-a" href="/users/user">Usuarios</a>
@@ -29,8 +29,12 @@
   <li class="nav-item li-donaciones">
     <a class="nav-link user-donation" href="/donaciones/realizarDonacion/{{user.id_usuario}}">Realizar Donaciones</a>
   </li>
+  <li class="nav-item li-listadonaciones">
+    <a class="nav-link user-lista-donation" href="/donaciones/listaDonaciones/">Lista de Donaciones</a>
+  </li>
   <li class="nav-item li-proveedores">
-    <a class="nav-link user-providers" href="/solicitud_proveedores/lista_proveedores">Solicitudes para registro de proveedores</a>
+    <a class="nav-link user-providers" href="/solicitud_proveedores/lista_proveedores">Solicitudes para registro de
+      proveedores</a>
   </li>
 </ul>
 {{/if}}

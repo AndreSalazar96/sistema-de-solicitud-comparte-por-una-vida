@@ -30,7 +30,7 @@ passport.use('local.signup', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async (req, username, password, done) => {
-    const {fullname,nombre_razon,id_tipo_usuario,direccion,telefono,correo,avatar_image} = req.body;
+    const {fullname,nombre_razon,id_tipo_usuario,direccion,telefono,correo} = req.body;
     const newUser = {
         username,
         password,
@@ -40,8 +40,9 @@ passport.use('local.signup', new LocalStrategy({
         direccion,
         telefono,
         correo,
-        avatar_image
+        avatar_image: req.file.originalname
     };
+
     newUser.password = await helpers.encryptPassword(password);
     const result = await pool.query('INSERT INTO users SET ? ', newUser);
     newUser.id_usuario = result.insertId;

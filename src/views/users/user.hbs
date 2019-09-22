@@ -20,6 +20,7 @@
                     <th scope="col">correo</th>
                     <th scope="col">telefono</th>
                     <th scope="col">Tipo de Usuario</th>
+                    <th scope="col">Fecha de registro</th>
                 </tr>
             </thead>
             {{#each list_users}}
@@ -30,7 +31,7 @@
                     <td>{{correo}}</td>
                     <td>{{telefono}}</td>
                     <td>{{descripcion_tipo_usuario}}</td>
-
+                    <td>{{timeago create_at}}</td>
                 </tr>
             </tbody>
             {{/each}}

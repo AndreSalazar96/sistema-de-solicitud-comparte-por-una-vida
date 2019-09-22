@@ -6,6 +6,16 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
 const passport = require('passport');
+// Multer config
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination:  path.join(__dirname, 'public/uploads'),
+  filename: (req,file, cb) =>{
+    cb(null, file.originalname)
+  }
+});
+// End multer config
 
 const {database} = require('./keys');
 
@@ -26,6 +36,7 @@ app.engine('.hbs', exphbs({
 }))
 app.set('view engine', '.hbs');
 
+
 //middleware
 app.use(session({
   secret: 'swcpuv',
@@ -40,6 +51,11 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
+// Multer config
+app.use(multer({
+  storage,
+  dest: path.join(__dirname, 'public/uploads')
+}).single('avatar_image'));
 
 
 //global Variables

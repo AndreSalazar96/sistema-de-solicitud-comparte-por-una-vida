@@ -6,7 +6,7 @@ const { isLoggedIn, isNotloggedIn } = require('../lib/auth');
 
 //RENDERIZA LA VISTA Y LA LISTA DE SOLICITUD DE PROVEEDORES
 router.get('/lista_proveedores', isLoggedIn, async (req, res) => {
-    const listaSolicitudProveedores = await pool.query('SELECT solicitudes.id_solicitudes, STATUS .descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitudes.id_tipo_usuario, solicitudes.nombre_solicitante, solicitudes.ubicacion_solicitante, solicitudes.contacto, solicitudes.telefono, solicitudes.correo, solicitudes.create_at FROM solicitudes INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitudes.id_tipo_usuario INNER JOIN STATUS ON STATUS .id_status = solicitudes.id_status WHERE id_tipo_solicitud = 1');
+    const listaSolicitudProveedores = await pool.query('SELECT solicitudes.id_solicitudes, status.descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitudes.id_tipo_usuario, solicitudes.nombre_solicitante, solicitudes.ubicacion_solicitante, solicitudes.contacto, solicitudes.telefono, solicitudes.correo, solicitudes.create_at FROM solicitudes INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitudes.id_tipo_usuario INNER JOIN status ON status .id_status = solicitudes.id_status WHERE id_tipo_solicitud = 1');
     res.render('solicitud_proveedores/lista_proveedores', {listaSolicitudProveedores});
 });
 
@@ -30,7 +30,7 @@ router.post('/proveedoresForm', isNotloggedIn, async (req, res) => {
         id_tipo_solicitud
     }
     await pool.query('INSERT INTO solicitudes set ?', [datosProveedor]);
-    req.flash('success', 'Su solicitud ha sido enviada, se le estara notificando en las proximas horas mediante un correo electronico o llamada telefonica sus subscripción.');
+    req.flash('success', 'Su solicitud ha sido enviada, se le estara notificando su subscripción en las proximas horas mediante un correo electronico o llamada telefonica.');
     res.redirect('/solicitud_proveedores/proveedoresForm');
 });
 

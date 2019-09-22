@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs')
+const handlebars = require('handlebars')
 
 const helpers = {};
 
@@ -15,5 +16,10 @@ helpers.matchPassword = async (password, savedPassword) => { //Aqui comparamos q
        console.log(e)
    }
 };
+
+
+handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
 
 module.exports  = helpers;
