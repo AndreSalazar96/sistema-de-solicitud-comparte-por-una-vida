@@ -26,10 +26,11 @@ router.post('/add', isLoggedIn, async (req,res) => {
         description,
         user_id: req.user.id_usuario
     };
+    console.log(newProduct);
+    console.log(req.file);
     await pool.query('INSERT INTO products set ?', [newProduct]);
     req.flash('success', 'Producto guardado satisfactoriamente');
     res.redirect('/products');
-    console.log(req.body);
 });
 //-------------------------------------------
 
@@ -37,7 +38,6 @@ router.post('/add', isLoggedIn, async (req,res) => {
 //AQUI MUESTRO LA LISTA DE PRODUCTOS EXISTENTES
 router.get('/', isLoggedIn, async (req, res) => {
     const products = await pool.query('SELECT users.fullname, users.username, products.id_product, products.title, products.fecha_caducidad, products.description, products.created_at, products.cantidad_producto from products INNER JOIN users ON products.user_id = users.id_usuario');
-    console.log(products);
     res.render('products/list', { products });
 });
 //---------------------------------------------
@@ -60,7 +60,6 @@ router.get('/edit/:id_product', async (req,res) => {
      const categoria_producto = await pool.query('SELECT * FROM tipe_product');
      const status_product = await pool.query('SELECT * FROM status  WHERE tabla_padre = "products"');
      res.render('products/edit', {product: products[0], categoria_producto, status_product});
-    console.log(products);
 });
 
 router.post('/edit/:id_product', isLoggedIn, async (req, res) => {

@@ -1,21 +1,40 @@
 <div class="container p-4">
     <div class="row">
-        
-        <div class="col-md-3">
-            <div class="card text-center">
+        <div class="col-md-4  mx-auto">
+            <div class="card">
                 <div class="card-body">
+                    <form action="/products/edit/" method="POST">
+                        <div class="form-group">
+                            <input type="text" value="" class="form-control" name="productname"
+                                placeholder="{{editarDonacion.productname}}" >
+                        </div>
+                        <div class="form-group">
+                            <input type="date" value="" name="fecha_caducidad" class="form-control form-group"
+                                placeholder="{{editarDonacion.fechacaduc}}">
+                        </div>
 
-                    <h3 class="card-title text-uppercase">
-                        {{editarDonacion.productname}}
-                    </h3>
-                    <p class="card-title fecha-vencimiento">Vence el: {{editarDonacion.fechacaduc}}</p>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="cantidadproduct"
+                                placeholder="{{editarDonacion.cantidadproduct}}" value="" >
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="id_status"
+                                placeholder="{{editarDonacion.descripcion_status}}" value="" >
+                        </div>
 
-                    <p class="description m-2 ">{{editarDonacion.descripcionproduct}}</p>
-                    <p class="">{{timeago created_at}} Por: {{editarDonacion.contacto}}</p>
-                    <div class="col-md-12 container-buttons-list">
-                    </div>
+                        <div class="form-group">
+                            <textarea name="descripcionproduct" id="" rows="2" class="form-control"
+                                placeholder="{{editarDonacion.descripcionproduct}}"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Agregar a lista de productos
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>     
+        </div>
     </div>
 </div>

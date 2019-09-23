@@ -48,8 +48,9 @@ router.get('/listaDonaciones/', isLoggedIn, async (req, res) => {
     res.render('donaciones/listaDonaciones', { listaDonaciones });
 });
 
-router.get('/editarDonacion/:id_usuario', isLoggedIn, async (req, res) => {
-    const editarDonacion = await pool.query('SELECT * FROM donaciones');
+router.get('/editarDonacion/:id_donaciones', isLoggedIn, async (req, res) => {
+    const {id_donaciones} = req.params
+    const editarDonacion = await pool.query('SELECT donaciones.id_donaciones, donaciones.id_usuario, donaciones.productname, donaciones.fechacaduc, donaciones.cantidadproduct, donaciones.descripcionproduct, status.descripcion_status, donaciones.contacto, donaciones.ubicacion_solicitante, donaciones.direccion_entrega, donaciones.telefono, donaciones.correo, donaciones.identidicacioncaja, donaciones.create_at FROM donaciones INNER JOIN status ON status.id_status = donaciones.id_status WHERE id_donaciones = ?', [id_donaciones]);
     res.render('donaciones/editarDonacion', { editarDonacion: editarDonacion[0] });
 });
 

@@ -1,29 +1,43 @@
-<div class="container p-4">
+
+{{!--  --}}
+<div class="product-donacion-container container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
+    <h3 class="text-update-solicitudes">Lista de Productos</h3>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    </div>
+</nav>
     <div class="row">
         {{#each products}}
-        <div class="col-md-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    
-                        <h3 class="card-title text-uppercase">
-                            {{title}}
-                        </h3>
-                        <p class="card-title fecha-vencimiento">Vence el: {{fecha_caducidad}}</p>
-                    
-                    <p class="description m-2 ">{{description}}</p>
-                    <p class="">{{timeago created_at}} Por: {{fullname}}</p>
-                    <div class="col-md-12 container-buttons-list">
-                        {{!-- <a href="/products/delete/{{id_product}}" class="btn btn-danger">Borrar</a> --}}
-                        <a href="/products/edit/{{id_product}}" class="btn btn-secondary">Editar</a>
-                    </div>
+        <div class="example-1 card col-md-4">
+            <div class="wrapper">
+                <div class="date">
+                    <span class="day"><a href="/products/edit/{{id_product}}" class="">ID: {{id_product}}</a></span>
                 </div>
-            </div>
-        </div>
-        {{else}}
-        <div class="col-md-4 mx-auto">
-            <div class="card-body text-center">
-                <p class="empty-message">No hay productos aun.</p>
-                <a href="/products/add" class="url-add">Agregar uno</a>
+                <div class="data">
+                    <div class="content">
+                        <span class="author"><strong>Por:</strong> {{fullname}}</span>
+                        <h4 class="title"><a href="#">{{title}}</a></h4>
+                        <p class="text">{{description}}</p>
+                        <a href="/products/edit/{{id_product}}" class="btn btn-primary">Editar</a>
+                        {{!-- <label for="show-menu" class="menu-button"><span></span></label> --}}
+                    </div>
+                    {{!-- <input type="checkbox" id="show-menu" /> --}}
+
+                    <ul class="menu-content">
+                        <li>
+                            <label for="cantidad-product" class="cantidad-product-donada">Cantidad donada</label>
+                            <a href="#" class="cantidad-ahref" id="cantidad-product">{{cantidad_producto}}</a>
+                        </li>
+                        <li>
+                            <label for="cantidad-product" class="cantidad-product-donada">Existencia</label>
+                            <a href="#" class="cantidad-ahref" id="cantidad-product">{{descripcion_status}}</a>
+                        </li>
+                        <li>
+                            <label for="cantidad-product" class="cantidad-product-donada">Fecha Caducidad</label>
+                            <a href="#" class="cantidad-ahref" id="cantidad-product">{{fecha_caducidad}}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         {{/each}}
