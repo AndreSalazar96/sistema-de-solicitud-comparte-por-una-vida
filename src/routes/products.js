@@ -16,28 +16,33 @@ router.get('/add', isLoggedIn, async (req,res) => {
 
 //AQUI HAGO LA CONSULTA PARA AGREGAR PRODUCTOS. NOTA: id_tipe_product y id_status no estan en newProduct porque no estan siendo listados por ser campos de otra tabla
 router.post('/add', isLoggedIn, async (req,res) => {
-    const {title, fecha_caducidad, id_tipe_product, cantidad_producto, description, id_status } = req.body;
-    const newProduct = {
-        id_tipe_product,
-        id_status,
-        title,
-        fecha_caducidad,
-        cantidad_producto,
-        description,
-        user_id: req.user.id_usuario
-    };
-    console.log(newProduct);
-    console.log(req.file);
-    await pool.query('INSERT INTO products set ?', [newProduct]);
-    req.flash('success', 'Producto guardado satisfactoriamente');
-    res.redirect('/products');
+    try{
+        const {title, fecha_caducidad, id_tipe_product, cantidad_producto, description, id_status } = req.body;
+        const newProduct = {
+            id_tipe_product,
+            id_status,
+            title,
+            fecha_caducidad,
+            cantidad_producto,
+            description,
+            user_id: req.user.id_usuario
+        };
+        await pool.query('INSERT INTO products set ?', [newProduct]);
+        console.log(newProduct);
+        req.flash('success', 'Producto guardado satisfactoriamente');
+        res.redirect('/products');
+        
+    }catch(e){
+        console.log(e)
+    }
+
 });
 //-------------------------------------------
 
 
 //AQUI MUESTRO LA LISTA DE PRODUCTOS EXISTENTES
 router.get('/', isLoggedIn, async (req, res) => {
-    const products = await pool.query('SELECT users.fullname, users.username, products.id_product, products.title, products.fecha_caducidad, products.description, products.created_at, products.cantidad_producto from products INNER JOIN users ON products.user_id = users.id_usuario');
+    const products = await pool.query('SELECT users.fullname, status.descripcion_status, users.username, products.id_product, products.title, products.fecha_caducidad, products.description, products.created_at, products.cantidad_producto from products INNER JOIN users ON products.user_id = users.id_usuario INNER JOIN status ON products.id_status = status.id_status');
     res.render('products/list', { products });
 });
 //---------------------------------------------

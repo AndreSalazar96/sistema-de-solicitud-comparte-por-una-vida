@@ -138,8 +138,8 @@ addProductFormEl.addEventListener('submit', function (e) {
 
     var productName = productNameInputEl.value,
         fechacaduc = productDateInputEl.value
-        cantidadproduct = productCantInputEl.value
-        descripcionproduct = productDescriptiEl.value
+    cantidadproduct = productCantInputEl.value
+    descripcionproduct = productDescriptiEl.value
 
     if (!productName || !fechacaduc || !cantidadproduct || !descripcionproduct) {
         return false
@@ -149,7 +149,7 @@ addProductFormEl.addEventListener('submit', function (e) {
     ui.addProduct(productName, fechacaduc, cantidadproduct, descripcionproduct)
     // alert('Se agrego el producto ' + productName);
     ui.clearFormFields()
-    
+
 })
 
 productsEl.addEventListener('click', function (e) {
@@ -163,11 +163,11 @@ productsEl.addEventListener('click', function (e) {
 
 // Disable button donacion
 
-function validateInput(){
+function validateInput() {
     document.getElementById('btn-donaciones').disabled = !document.getElementById('productName').value.length;
     document.getElementById('btn-donaciones').disabled = !document.getElementById('fechCaduc').value.length;
     document.getElementById('btn-donaciones').disabled = !document.getElementById('cantidad').value.length;
-    document.getElementById('btn-donaciones').disabled = !document.getElementById('descripcion').value.length;  
+    document.getElementById('btn-donaciones').disabled = !document.getElementById('descripcion').value.length;
 }
 
 validateInput();

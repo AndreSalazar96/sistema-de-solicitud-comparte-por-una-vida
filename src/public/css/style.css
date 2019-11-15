@@ -432,8 +432,7 @@ a.nav-link.user-lista-donation:before {
   top: 3px;
 }
 
-listdona
-a.nav-link.logout {
+listdona a.nav-link.logout {
   margin-left: 15px;
 }
 
@@ -458,7 +457,7 @@ div.aceptar-container {
 .form-group.aceptar-container {
   margin: 20px 0px 20px 0px;
   display: flex;
-    justify-content: center;
+  justify-content: center;
 }
 
 a.nav-link.username {
@@ -487,24 +486,23 @@ a.nav-link.username {
   margin: 10px;
 }
 
-.image-subcontainer.row{
+.image-subcontainer.row {
   display: flex;
-    justify-content: center;
+  justify-content: center;
 }
 
-img.avatar_image{
+img.avatar_image {
   border-radius: 100%;
   width: auto;
   max-width: 50%;
   max-height: 100%;
 }
 
-ul.nav.flex-column.main-vertical-menu{
+ul.nav.flex-column.main-vertical-menu {
   border-right: 3px solid #d96f93;
 }
 
 /* New cards style */
-
 
 .product-donacion-container.container .row {
   width: auto;
@@ -521,8 +519,9 @@ ul.nav.flex-column.main-vertical-menu{
   padding: 0;
   list-style-type: none;
 }
-.card .menu-content::before, .card .menu-content::after {
-  content: '';
+.card .menu-content::before,
+.card .menu-content::after {
+  content: "";
   display: table;
 }
 .card .menu-content::after {
@@ -540,7 +539,7 @@ ul.nav.flex-column.main-vertical-menu{
   top: 0;
   font-size: 10px;
   font-weight: 700;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   transform: translate(-50%, 0);
 }
 .card .wrapper {
@@ -575,10 +574,10 @@ ul.nav.flex-column.main-vertical-menu{
   height: 70px;
   margin: 0;
 }
-.card input[type='checkbox'] {
+.card input[type="checkbox"] {
   display: none;
 }
-.card input[type='checkbox']:checked + .menu-content {
+.card input[type="checkbox"]:checked + .menu-content {
   transform: translateY(-60px);
 }
 .example-1 .wrapper {
@@ -606,7 +605,8 @@ ul.nav.flex-column.main-vertical-menu{
 .example-1 .date .month {
   text-transform: uppercase;
 }
-.example-1 .date .month, .example-1 .date .year {
+.example-1 .date .month,
+.example-1 .date .year {
   font-size: 12px;
 }
 .example-1 .content {
@@ -634,8 +634,9 @@ ul.nav.flex-column.main-vertical-menu{
   display: inline-block;
   border-radius: 50%;
 }
-.example-1 .menu-button span::after, .example-1 .menu-button span::before {
-  content: '';
+.example-1 .menu-button span::after,
+.example-1 .menu-button span::before {
+  content: "";
   display: block;
   width: 5px;
   height: 5px;
@@ -687,8 +688,9 @@ ul.nav.flex-column.main-vertical-menu{
   color: #fff;
   padding: 1em;
 }
-.example-2 .header::before, .example-2 .header::after {
-  content: '';
+.example-2 .header::before,
+.example-2 .header::after {
+  content: "";
   display: table;
 }
 .example-2 .header::after {
@@ -728,7 +730,7 @@ ul.nav.flex-column.main-vertical-menu{
   font-weight: 700;
 }
 .example-2 .button::after {
-  content: '\2192';
+  content: "\2192";
   opacity: 0;
   position: absolute;
   right: 0;
@@ -754,7 +756,7 @@ span.day a {
   color: #fff;
 }
 
-label.cantidad-product-donada{
+label.cantidad-product-donada {
   color: #fff;
   font-weight: bold;
   position: relative;
@@ -762,7 +764,8 @@ label.cantidad-product-donada{
   font-size: 8px;
 }
 
-h4.title{
+h4.title {
   font-size: 20px;
 }
-/* End new cards style */
+
+
