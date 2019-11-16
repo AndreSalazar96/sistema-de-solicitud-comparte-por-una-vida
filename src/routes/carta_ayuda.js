@@ -51,13 +51,6 @@ router.get('/status-ayuda-humanitaria/:id_cartas_ayuda', isLoggedIn, async (req,
 
 // Status
 
-// router.post('/aprobar/:id_cartas_ayuda', async (req,res) =>{
-//     const { id_cartas_ayuda } = req.params;
-//     await pool.query('UPDATE cartas_ayuda SET id_status = 3 WHERE id_cartas_ayuda = ?', [id_cartas_ayuda]);
-//     req.flash('success', 'La carta  a sido Aprobada');
-//     res.redirect('/ayuda-humanitaria/lista-ayuda-humanitaria');
-// });
-
 router.get('/aprobar/:id_cartas_ayuda', async (req, res) => {
     const { id_cartas_ayuda } = req.params;
     await pool.query('UPDATE cartas_ayuda SET id_status = 3 WHERE id_cartas_ayuda = ?', [id_cartas_ayuda]);
@@ -80,8 +73,6 @@ router.get('/enproceso/:id_cartas_ayuda', async (req, res) => {
     req.flash('success', 'La carta a sido revisada y esta en proceso a ser aprobada');
     res.redirect('/ayuda-humanitaria/lista-ayuda-humanitaria');
 });
-
-
 
 
 module.exports = router;

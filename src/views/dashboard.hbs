@@ -1,13 +1,221 @@
-<div class="box-container">
+<div class="box-container dashboard">
     <div class="card-body dashboard">
         <h3> Comparte por una vida</h3>
     </div>
     <div class="box-container-row">
-        <div class="card lista-solicitud-ayuda"></div>
-        <div class="card card-1 cartas-ayuda"></div>
+        <div class="card lista-solicitud-ayuda">
+            <div class="container-information">
+                <div class="container-title-dashboard">
+                    <h3>Resumen Lista de Solicitudes</h3>
+                </div>
+                <div class="container-information-dashboard">
+                    {{!-- <input id="myInput" type="text" placeholder="Search.."> --}}
+                    <table class="table table-bordered solicitud-table" id="myTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">status</th>
+                                <th scope="col">Institucion</th>
+                                <th scope="col">Fecha de creacion</th>
+                            </tr>
+                        </thead>
+                        {{#each solicitudes}}
+                        <tbody>
+                            <tr>
+                                <td scope="row">
+                                    <a href="/solicitudes/editarsolicitud/{{id_solicitudes}}">{{id_solicitudes}}</a>
+                                </td>
+                                <td class="solicitud-class-{{descripcion_status}}">{{descripcion_status}}</td>
+                                <td>{{nombre_solicitante}}</td>
+                                <td>{{timeago create_at}}</td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card card-1 cartas-ayuda">
+            <div class="container-information">
+                <div class="container-title-dashboard">
+                    <h3>Resumen Lista de cartas </h3>
+                </div>
+                <div class="container-information-dashboard">
+                    {{!-- <input type="text" id="myInput" onkeyup="filterTableFunction()" placeholder="Buscar carta..."> --}}
+                    <table class="table table-bordered solicitud-table" id="myTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">status</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Fecha de creacion</th>
+                            </tr>
+                        </thead>
+                        {{#each cart_list}}
+                        <tbody>
+                            <tr>
+                                <td scope="row">
+                                    <a
+                                        href="/ayuda-humanitaria/status-ayuda-humanitaria/{{id_cartas_ayuda}}">{{id_cartas_ayuda}}</a>
+                                </td>
+                                <td class="solicitud-class-{{descripcion_status}}">{{descripcion_status}}</td>
+                                <td>{{fullname}}</td>
+                                <td>{{timeago create_at}}</td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="box-container-row">
-        <div class="card card-2 lista-donaciones"></div>
-        <div class="card card-3 solicitudes-proveedores"></div>
+        <div class="card card-2 lista-donaciones">
+            <div class="container-information">
+                <div class="container-title-dashboard">
+                    <h3>Resumen Lista de Donaciones </h3>
+                </div>
+                <div class="container-information-dashboard">
+                    <table class="table table-bordered solicitud-table" id="myTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nombre Producto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Donador</th>
+                            </tr>
+                        </thead>
+                        {{#each listaDonaciones}}
+                        <tbody>
+                            <tr>
+                                <td scope="row">
+                                    <a href="/donaciones/editarDonacion/{{id_donaciones}}">{{id_donaciones}}</a>
+                                </td>
+                                <td class="solicitud-class-{{productname}}">{{productname}}</td>
+                                <td>{{cantidadproduct}}</td>
+                                <td>{{contacto}}</td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card card-3 solicitudes-proveedores">
+            <div class="container-information">
+                <div class="container-title-dashboard">
+                    <h3>Resumen Lista de Proveedores </h3>
+                </div>
+                <div class="container-information-dashboard">
+                    <table class="table table-bordered solicitud-table" id="myTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nombre proveedor</th>
+                                <th scope="col">direccion</th>
+                                <th scope="col">Fecha de ingreso</th>
+                            </tr>
+                        </thead>
+                        {{#each listaSolicitudProveedores}}
+                        <tbody>
+                            <tr>
+                                <td scope="row">
+                                    <a
+                                        href="/solicitud_proveedores/updateproveedor/{{id_solicitudes}}">{{id_solicitudes}}</a>
+                                </td>
+                                <td class="solicitud-class-{{descripcion_status}}">{{descripcion_status}}</td>
+                                <td>{{contacto}}</td>
+                                <td>{{timeago create_at}}</td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
+
+    {{!-- SOLICITANTE CONTENT --}}
+
+    <div class="container solicitante">
+        <div class="row">
+            <div class="container p-4">
+                <div class="row">
+                    <div class="col-md-9 mx-auto form-style">
+                        <div class="card text-center box-shadow">
+                            <div class="card-header">
+                                <p class="text-ayuda">Esta es su carta</p>
+                            </div>
+                            <div class="card-body">
+
+                                <form
+                                    action="/ayuda-humanitaria/formulario-ayuda-humanitaria/{{cartas_ayuda.id_cartas_ayuda}}"
+                                    method="POST">
+                                    <div class="form-group">
+                                        <input type="text" name="fullname" id="" placeholder="Nombre Completo"
+                                            class="form-control" value="{{cartas_ayuda.fullname}}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" name="direccion" placeholder="Ubicación" class="form-control"
+                                            value="{{cartas_ayuda.direccion}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="telefono" placeholder="Teléfono" class="form-control"
+                                            value="{{cartas_ayuda.telefono}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="correo" placeholder="Correo" class="form-control"
+                                            value="{{cartas_ayuda.correo}}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" name="nombre_razon" placeholder="Empresa (opcional)"
+                                            class="form-control" value="{{cartas_ayuda.nombre_razon}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="descripcion"
+                                            placeholder="Escribenos el por que quieres donar algo a la fundacion"
+                                            class="form-control">{{cartas_ayuda.descripcion}}</textarea>
+                                    </div>
+
+                                    <div class="form-group" style="visibility: hidden;">
+                                        <input type="text" name="id_tipo_usuario" id="" placeholder="tipo_usuario"
+                                            class="form-control" value="{{cartas_ayuda.id_tipo_usuario}}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{!-- <button class="btn btn-success">
+                                Aprobar al carta
+                            </button> --}}
+
+                                        <a href="/ayuda-humanitaria/aprobar/{{cartas_ayuda.id_cartas_ayuda}}"
+                                            class="btn btn-success"> Aprobar al carta</a>
+                                        <a href="/ayuda-humanitaria/enproceso/{{cartas_ayuda.id_cartas_ayuda}}"
+                                            class="btn btn-warning">En
+                                            Proceso</a>
+                                        <a href="/ayuda-humanitaria/anular/{{cartas_ayuda.id_cartas_ayuda}}"
+                                            class="btn btn-danger">Anular</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- END SOLICITANTE CONTENT --}}
+
+    {{!-- COLABORADOR CONTENT --}}
+
+    <div class="colaborador colaborador"></div>
+    {{!-- END COLABORADOR CONTENT --}}
+
+    {{!-- PROVEEDOR CONTENT --}}
+
+
+    <div class="colaborador proveedor"></div>
+    {{!-- END PROVEEDOR CONTENT --}}
+
 </div>

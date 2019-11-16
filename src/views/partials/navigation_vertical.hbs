@@ -1,5 +1,9 @@
 {{#if user.id_tipo_usuario }}
 <ul class="nav flex-column main-vertical-menu">
+
+  <li class="nav-item li-home">
+    <a class="nav-link nav-link home-a" href="/dashboard">Inicio</a>
+  </li>
   <li class="nav-item li-usuarios">
     <a class="nav-link nav-link user-a" href="/users/user">Lista de Usuarios</a>
   </li>
@@ -26,6 +30,9 @@
   <li class="nav-item li-solicitar-ayuda">
     <a class="nav-link user-humanitary" href="/ayuda-humanitaria/formulario-ayuda-humanitaria/{{user.id_usuario}}">Carta
       para ayuda humanitaria</a>
+  </li>
+  <li class="nav-item li-solicitar-ayuda">
+    <a class="nav-link user-humanitary" href="/ayuda-humanitaria/status-ayuda-humanitaria/{{id_cartas_ayuda}}">Estatus de carta</a>
   </li>
   <li class="nav-item li-carta-ayuda">
     <a class="nav-link letter-love" href="/ayuda-humanitaria/lista-ayuda-humanitaria">Lista de Cartas

@@ -202,7 +202,8 @@ body.user-login-id-nro-2 li.nav-item.li-solicitud-registro,
 body.user-login-id-nro-2 li.nav-item.li-proveedores,
 body.user-login-id-nro-2 li.nav-item.li-solicitar-ayuda,
 body.user-login-id-nro-2 li.nav-item.li-donaciones,
-body.user-login-id-nro-2 li.nav-item.li-listadonaciones {
+body.user-login-id-nro-2 li.nav-item.li-listadonaciones,
+body.user-login-id-nro-2 li.nav-item li-solicitar-ayuda {
   display: none;
 }
 
@@ -214,7 +215,8 @@ body.user-login-id-nro-3 li.nav-item.dropdown.li-productos,
 body.user-login-id-nro-3 li.nav-item.li-tipo-productos,
 body.user-login-id-nro-3 li.nav-item.li-donaciones,
 body.user-login-id-nro-3 li.nav-item.li-ayuda,
-body.user-login-id-nro-3 li.nav-item.li-listadonaciones {
+body.user-login-id-nro-3 li.nav-item.li-listadonaciones,
+body.user-login-id-nro-3 li.nav-item.li-carta-ayuda {
   display: none;
 }
 
@@ -225,7 +227,8 @@ body.user-login-id-nro-4 li.nav-item.li-proveedores,
 body.user-login-id-nro-4 li.nav-item.dropdown.li-productos,
 body.user-login-id-nro-4 li.nav-item.li-tipo-productos,
 body.user-login-id-nro-4 li.nav-item.li-ayuda,
-body.user-login-id-nro-4 li.nav-item.li-solicitar-ayuda {
+body.user-login-id-nro-4 li.nav-item.li-solicitar-ayuda,
+body.user-login-id-nro-4 li.nav-item li-solicitar-ayuda {
   display: none;
 }
 
@@ -350,11 +353,27 @@ form.form-donaciones.col-md-12 {
   color: #607d8b;
   text-decoration: none;
   background-color: transparent;
-  margin: 10px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+a.nav-link.nav-link.home-a {
+  background-color: #00a1bc;
+  color: #fff;
+}
+
+a.nav-link.nav-link.home-a:hover {
+  color: #fff !important;
 }
 
 .nav.flex-column.main-vertical-menu a:hover {
   color: #00a1bc;
+}
+
+a.nav-link.nav-link.home-a:before{
+  content: url(/img/home.png);
+  margin: 10px;
+  position: relative;
+  top: 7px;
 }
 
 a.nav-link.nav-link.user-a:before {
@@ -788,13 +807,16 @@ div.box-container-row {
   display: flex;
 }
 
-.card {
+ div.box-container.dashboard .card {
   background: #fff;
   border-radius: 2px;
-  height: 300px;
+  height: fit-content;
   margin: 1rem;
   position: relative;
   width: 100%;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 5px 5px 15px #00000057;
 }
 
 .card-body.dashboard h3{
@@ -804,4 +826,38 @@ div.box-container-row {
 
 .card-body.dashboard{
   background-color: #d96f93;
+}
+
+div.box-container.dashboard #myInput {
+  background-image: url(/css/searchicon.png);
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin: 0px 0px 20px 0px;
+}
+
+/* dashboard */
+
+.box-container.dashboard table.table.table-bordered.solicitud-table {
+  margin: 0px;
+}
+
+/* deshabilitar dashboard */
+body.user-login-id-nro-2 .box-container-row,
+body.user-login-id-nro-3 .box-container-row,
+body.user-login-id-nro-4 .box-container-row{
+  display: none !important;
+}
+
+
+/* desahabilitar solicitante informacion */
+
+.container.solicitante{
+  display: none;
+}
+body.user-login-id-nro-3 .container.solicitante{
+  display: block;
 }
