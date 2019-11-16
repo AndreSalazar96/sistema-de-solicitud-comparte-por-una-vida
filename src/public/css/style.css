@@ -432,6 +432,13 @@ a.nav-link.user-lista-donation:before {
   top: 3px;
 }
 
+a.nav-link.letter-love:before {
+  content: url(/img/love-letter.png);
+  margin-right: 5px;
+  position: relative;
+  top: 3px;
+}
+
 listdona a.nav-link.logout {
   margin-left: 15px;
 }
@@ -768,4 +775,33 @@ h4.title {
   font-size: 20px;
 }
 
+body.user-login-id-nro-4 .date a {
+  display: none;
+}
 
+div.box-container {
+  width: 100%;
+}
+
+div.box-container-row {
+  width: 100%;
+  display: flex;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  height: 300px;
+  margin: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.card-body.dashboard h3{
+  text-align: center;
+  color: #fff;
+}
+
+.card-body.dashboard{
+  background-color: #d96f93;
+}

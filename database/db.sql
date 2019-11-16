@@ -41,6 +41,19 @@ CREATE TABLE `donaciones_proveedores` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla  `cartas_ayuda`
+--
+
+CREATE TABLE `cartas_ayuda` (
+`id_cartas_ayuda` INT(11) NOT NULL,
+`id_usuario` INT(11) DEFAULT NULL,
+`id_status` INT(11) NOT NULL,
+`descripcion` VARCHAR(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `products`
 --
 
@@ -232,6 +245,17 @@ CREATE TABLE `usuario_solicitud` (
 --
 
 --
+-- Indice de la tabla cartas_ayuda
+--
+ALTER TABLE `cartas_ayuda`
+  ADD CONSTRAINT `pk_id_cartas_ayuda` PRIMARY KEY (id_cartas_ayuda);
+  
+ALTER TABLE `cartas_ayuda`
+  ADD CONSTRAINT  `fk_id_carta_id_usuario` FOREIGN KEY (`id_usuario`)  REFERENCES `users` (`id_usuario`),
+  ADD CONSTRAINT  `fk_id_carta_id_status` FOREIGN KEY (`id_status`) REFERENCES `status` (`id_status`);
+
+
+--
 -- Indices de la tabla `donaciones_proveedores`
 --
 ALTER TABLE `donaciones_proveedores`
@@ -327,6 +351,9 @@ ALTER TABLE `usuario_solicitud`
 --
 ALTER TABLE `donaciones_proveedores`
   MODIFY `id_donaciones_proveedores` int(11) NOT NULL AUTO_INCREMENT;
+
+  ALTER TABLE `cartas_ayuda`
+  MODIFY `id_cartas_ayuda` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `products`

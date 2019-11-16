@@ -11,7 +11,6 @@ router.get('/user', isLoggedIn, async (req, res) => {
   });
 
   router.get('/updateuser/:id_usuario', isLoggedIn, async (req,res) => {
-    // res.render('users/updateuser');
     const {id_usuario} = req.params;
     const listusers = await pool.query('SELECT users.id_usuario, tipo_usuario.descripcion_tipo_usuario, users.fullname, users.username, users.telefono, users.correo, users.direccion, users.nombre_razon, users.id_tipo_usuario, users.avatar_image FROM users INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = users.id_tipo_usuario WHERE id_usuario = ?', [id_usuario]);
     res.render('users/updateuser', {listusers: listusers[0]});  

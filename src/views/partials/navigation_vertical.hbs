@@ -1,7 +1,7 @@
 {{#if user.id_tipo_usuario }}
 <ul class="nav flex-column main-vertical-menu">
   <li class="nav-item li-usuarios">
-    <a class="nav-link nav-link user-a" href="/users/user">Usuarios</a>
+    <a class="nav-link nav-link user-a" href="/users/user">Lista de Usuarios</a>
   </li>
   <li class="nav-item dropdown li-productos">
     <a class="nav-link dropdown-toggle user-box" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -15,16 +15,21 @@
     </div>
   </li>
   <li class="nav-item li-tipo-productos">
-    <a class="nav-link user-list" href="/tipo_producto/tipo_producto">Tipo de producto</a>
+    <a class="nav-link user-list" href="/tipo_producto/tipo_producto">Categoria de producto</a>
   </li>
   <li class="nav-item li-solicitud-registro">
-    <a class="nav-link user-request" href="/solicitudes/listsolicitudes">Solicitud de registro</a>
+    <a class="nav-link user-request" href="/solicitudes/listsolicitudes">Lista de solicitud para ayuda humanitaria</a>
   </li>
   <li class="nav-item li-ayuda">
-    <a class="nav-link user-help" href="#">Lista Solicitud de ayuda humanitaria</a>
+    <a class="nav-link user-help" href="#">Lista de solicitud para ayuda humanitaria</a>
   </li>
   <li class="nav-item li-solicitar-ayuda">
-    <a class="nav-link user-humanitary" href="#">Solicitar Ayuda Humanitaria</a>
+    <a class="nav-link user-humanitary" href="/ayuda-humanitaria/formulario-ayuda-humanitaria/{{user.id_usuario}}">Carta
+      para ayuda humanitaria</a>
+  </li>
+  <li class="nav-item li-carta-ayuda">
+    <a class="nav-link letter-love" href="/ayuda-humanitaria/lista-ayuda-humanitaria">Lista de Cartas
+      para ayudas humanitarias</a>
   </li>
   <li class="nav-item li-donaciones">
     <a class="nav-link user-donation" href="/donaciones/realizarDonacion/{{user.id_usuario}}">Realizar Donaciones</a>

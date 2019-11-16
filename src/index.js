@@ -76,6 +76,7 @@ app.use('/users', require('./routes/listusers'));
 app.use('/solicitudes', require('./routes/listsolicitudes'));
 app.use('/tipo_producto', require('./routes/tipo_producto'));
 app.use('/donaciones', require('./routes/donaciones'));
+app.use('/ayuda-humanitaria', require('./routes/carta_ayuda'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));

@@ -1,0 +1,36 @@
+<div class="container ">
+    <div class="row">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
+            <h3 class="text-update-solicitudes">Lista de solicitus de para ayuda humanitaria</h3>
+        </nav>
+
+        <input type="text" id="myInput" onkeyup="filterTableFunction()" placeholder="Buscar carta...">
+        <table class="table table-bordered solicitud-table" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">correo</th>
+                    <th scope="col">telefono</th>
+                    <th scope="col">Tipo de usuario</th>
+                    <th scope="col">Fecha de registro</th>
+                </tr>
+            </thead>
+            {{#each cart_list}}
+            <tbody>
+                <tr>
+                    <th scope="row"><a href="/ayuda-humanitaria/status-ayuda-humanitaria/{{id_cartas_ayuda}}">{{id_cartas_ayuda}}</a></td>
+                    <td class="solicitud-class-{{descripcion_status}}">{{descripcion_status}}</td>
+                    <td>{{fullname}}</td>
+                    <td>{{correo}}</td>
+                    <td>{{telefono}}</td>
+                    <td>{{descripcion_tipo_usuario}}</td>
+                    <td>{{timeago create_at}}</td>
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+    </div>
+</div>
