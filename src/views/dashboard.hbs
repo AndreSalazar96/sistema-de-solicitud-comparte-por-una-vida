@@ -144,7 +144,7 @@
                     <div class="col-md-9 mx-auto form-style">
                         <div class="card text-center box-shadow">
                             <div class="card-header">
-                                <p class="text-ayuda">Esta es su carta</p>
+                                <p class="text-ayuda">Estatus de su carta</p>
                             </div>
                             <div class="card-body">
 
@@ -153,30 +153,36 @@
                                     method="POST">
                                     <div class="form-group">
                                         <input type="text" name="fullname" id="" placeholder="Nombre Completo"
-                                            class="form-control" value="{{cartas_ayuda.fullname}}">
+                                            class="form-control" value="{{cartas_ayuda.fullname}}" disabled>
                                     </div>
 
                                     <div class="form-group">
                                         <input type="text" name="direccion" placeholder="Ubicación" class="form-control"
-                                            value="{{cartas_ayuda.direccion}}">
+                                            value="{{cartas_ayuda.direccion}}" disabled>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" name="telefono" placeholder="Teléfono" class="form-control"
-                                            value="{{cartas_ayuda.telefono}}">
+                                            value="{{cartas_ayuda.telefono}}" disabled>
                                     </div>
                                     <div class="form-group">
                                         <input type="email" name="correo" placeholder="Correo" class="form-control"
-                                            value="{{cartas_ayuda.correo}}">
+                                            value="{{cartas_ayuda.correo}}" disabled>
                                     </div>
 
                                     <div class="form-group">
                                         <input type="text" name="nombre_razon" placeholder="Empresa (opcional)"
-                                            class="form-control" value="{{cartas_ayuda.nombre_razon}}">
+                                            class="form-control" value="{{cartas_ayuda.nombre_razon}}" disabled>
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="descripcion"
+                                        <textarea name="descripcion" disabled
                                             placeholder="Escribenos el por que quieres donar algo a la fundacion"
                                             class="form-control">{{cartas_ayuda.descripcion}}</textarea>
+                                    </div>
+
+                                    
+                                    <div class="form-group">
+                                        <p class="descripcion-status ">En este momento el estatus de su solicitud es: <strong class="solicitud-class-{{cartas_ayuda.descripcion_status}}">{{cartas_ayuda.descripcion_status}}</strong></p>
+                                        <p class="descripcion-status ">Una vez su carta haya sido aprobada estaremos en contacto con usted.</p>
                                     </div>
 
                                     <div class="form-group" style="visibility: hidden;">
@@ -184,19 +190,6 @@
                                             class="form-control" value="{{cartas_ayuda.id_tipo_usuario}}">
                                     </div>
 
-                                    <div class="form-group">
-                                        {{!-- <button class="btn btn-success">
-                                Aprobar al carta
-                            </button> --}}
-
-                                        <a href="/ayuda-humanitaria/aprobar/{{cartas_ayuda.id_cartas_ayuda}}"
-                                            class="btn btn-success"> Aprobar al carta</a>
-                                        <a href="/ayuda-humanitaria/enproceso/{{cartas_ayuda.id_cartas_ayuda}}"
-                                            class="btn btn-warning">En
-                                            Proceso</a>
-                                        <a href="/ayuda-humanitaria/anular/{{cartas_ayuda.id_cartas_ayuda}}"
-                                            class="btn btn-danger">Anular</a>
-                                    </div>
                                 </form>
                             </div>
                         </div>

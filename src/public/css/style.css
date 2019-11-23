@@ -233,8 +233,8 @@ body.user-login-id-nro-4 li.nav-item li-solicitar-ayuda {
 }
 
 #myInput {
-  background-image: url(/css/searchicon.png);
-  background-position: 10px 12px;
+  background-image: url(/img/loupe.png);
+  background-position: 1010px 12px;
   background-repeat: no-repeat;
   width: 100%;
   font-size: 16px;
@@ -313,17 +313,20 @@ li.nav-item.li-donar-redirect a:hover {
   border-radius: 5px;
 }
 
-td.solicitud-class-Anulada {
+td.solicitud-class-Anulada,
+strong.solicitud-class-Anulada {
   color: red;
   font-weight: bold;
 }
 
-td.solicitud-class-Aprobada {
+td.solicitud-class-Aprobada,
+strong.solicitud-class-Aprobada {
   color: #007d00;
   font-weight: bold;
 }
 
-td.solicitud-class-En.proceso {
+td.solicitud-class-En.proceso,
+strong.solicitud-class-En.proceso {
   color: #cc7900;
   font-weight: bold;
 }
@@ -829,14 +832,14 @@ div.box-container-row {
 }
 
 div.box-container.dashboard #myInput {
-  background-image: url(/css/searchicon.png);
-  background-position: 10px 12px;
+  background-image: url(/img/loupe.png);
+  background-position: 1010px 12px;
   background-repeat: no-repeat;
   width: 100%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
-  margin: 0px 0px 20px 0px;
+  margin: 31px 31px 0px 31px;
 }
 
 /* dashboard */
@@ -860,4 +863,10 @@ body.user-login-id-nro-4 .box-container-row{
 }
 body.user-login-id-nro-3 .container.solicitante{
   display: block;
+}
+
+p.descripcion-status{
+  font-size: 20px;
+  text-align: center;
+  font-family: sans-serif;
 }

@@ -10,7 +10,7 @@
     </nav>
     <div class="row">
         <div class="col-md-6 mx-auto form-style aprobar-solicitud">
-            <div class="card text-center box-shadow">
+            <div class="card text-center box-shadow {{solicitud.descripcion_status}}">
                 <div class="card-header">
                     <p class="text-ayuda">solicitud de {{solicitud.nombre_solicitante}}</p>
                 </div>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="form-group">
                             <button class="btn btn-success">
-                                Aprobar al solicitante {{solicitud.nombre_solicitante}}
+                                Aprobar al solicitante
                             </button>
                             <a href="/solicitudes/enproceso/{{solicitud.id_solicitudes}}" class="btn btn-warning">En
                                 Proceso</a>

@@ -23,6 +23,8 @@ router.get('/signin', isNotloggedIn, (req, res) => {
 });
 
 router.post('/signin', (req, res, next) => {
+  const {id_usuario} = req.params;
+  console.log(id_usuario);
   passport.authenticate('local.signin', {
     successRedirect: '/dashboard',
     failureRedirect: '/signin',
@@ -37,17 +39,13 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
   const listaDonaciones = await pool.query('SELECT status.descripcion_status, donaciones.id_usuario, donaciones.id_donaciones, donaciones.productname, donaciones.fechacaduc, donaciones.cantidadproduct, donaciones.descripcionproduct, donaciones.contacto, donaciones.ubicacion_solicitante, donaciones.direccion_entrega, donaciones.telefono, donaciones.correo, donaciones.identidicacioncaja, donaciones.create_at FROM donaciones INNER JOIN status ON status.id_status = donaciones.id_status');
   const listaSolicitudProveedores = await pool.query('SELECT solicitudes.id_solicitudes, status.descripcion_status, tipo_usuario.descripcion_tipo_usuario, solicitudes.id_tipo_usuario, solicitudes.nombre_solicitante, solicitudes.ubicacion_solicitante, solicitudes.contacto, solicitudes.telefono, solicitudes.correo, solicitudes.create_at FROM solicitudes INNER JOIN tipo_usuario ON tipo_usuario.id_tipo_usuario = solicitudes.id_tipo_usuario INNER JOIN status ON status .id_status = solicitudes.id_status WHERE id_tipo_solicitud = 1');
   // End admin dashboar information
-  
-  // solicitante dashboard information
-  // End solicitante dashboard information
   res.render('dashboard', { solicitudes, cart_list, listaDonaciones, listaSolicitudProveedores});
 });
 
-router.get('/dashboard/:id_cartas_ayuda', isLoggedIn, async (req, res) => {
-  const { id_cartas_ayuda } = req.params;
-  const cartas_ayuda = await pool.query('SELECT * FROM cartas_ayuda WHERE id_cartas_ayuda = ?', [id_cartas_ayuda] );
-  console.log(cartas_ayuda[0]);
-  res.render('/dashboard', { cartas_ayuda: cartas_ayuda[0] });
+router.get('/dashboard/:id_usuario', isLoggedIn, async (req, res) => {
+    const { id_usuario } = req.params;
+    const cartas_ayuda = await pool.query('SELECT cartas_ayuda.id_cartas_ayuda, users.id_usuario, cartas_ayuda.fullname, cartas_ayuda.direccion, cartas_ayuda.telefono, cartas_ayuda.correo, users.nombre_razon, cartas_ayuda.descripcion, status.descripcion_status FROM users INNER JOIN cartas_ayuda ON cartas_ayuda.id_usuario = users.id_usuario INNER JOIN status ON status.id_status = cartas_ayuda.id_status');
+    res.render('dashboard', { cartas_ayuda: cartas_ayuda[0] });
 });
 
 router.get('/logout', isLoggedIn, (req, res) => {
