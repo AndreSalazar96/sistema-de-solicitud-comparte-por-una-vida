@@ -2,7 +2,7 @@
 <ul class="nav flex-column main-vertical-menu">
 
   <li class="nav-item li-home">
-    <a class="nav-link nav-link home-a" href="/dashboard">Inicio</a>
+    <a class="nav-link nav-link home-a" href="/dashboard/{{user.id_usuario}}">Inicio</a>
   </li>
   <li class="nav-item li-usuarios">
     <a class="nav-link nav-link user-a" href="/users/user">Lista de Usuarios</a>
@@ -39,7 +39,7 @@
     <a class="nav-link user-donation" href="/donaciones/realizarDonacion/{{user.id_usuario}}">Realizar Donaciones</a>
   </li>
   <li class="nav-item li-listadonaciones">
-    <a class="nav-link user-lista-donation" href="/donaciones/listaDonaciones/">Lista de Donaciones</a>
+    <a class="nav-link user-lista-donation" href="/donaciones/listaDonaciones/{{users.id_usuario}}">Tu lista de productos donados</a>
   </li>
   <li class="nav-item li-proveedores">
     <a class="nav-link user-providers" href="/solicitud_proveedores/lista_proveedores">Solicitudes para registro de

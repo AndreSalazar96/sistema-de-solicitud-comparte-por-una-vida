@@ -1,6 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const pool = require('../database'); //Pool refers to the connection to the database ✓
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+var $ = jQuery = require('jquery')(window);
 
 const { isLoggedIn, isNotloggedIn } = require('../lib/auth');
 
@@ -44,12 +50,29 @@ router.post('/realizarDonaciones', isLoggedIn, async (req, res) => {
 
 // Lista de donaciones
 router.get('/listaDonaciones/', isLoggedIn, async (req, res) => {
-    const listaDonaciones = await pool.query('SELECT status.descripcion_status, donaciones.id_usuario, donaciones.id_donaciones, donaciones.productname, donaciones.fechacaduc, donaciones.cantidadproduct, donaciones.descripcionproduct, donaciones.contacto, donaciones.ubicacion_solicitante, donaciones.direccion_entrega, donaciones.telefono, donaciones.correo, donaciones.identidicacioncaja, donaciones.create_at FROM donaciones INNER JOIN status ON status.id_status = donaciones.id_status');
+    const listaDonaciones = await pool.query('SELECT status.descripcion_status, users.id_usuario, donaciones.id_usuario, donaciones.id_donaciones, donaciones.productname, donaciones.fechacaduc, donaciones.cantidadproduct, donaciones.descripcionproduct, donaciones.contacto, donaciones.ubicacion_solicitante, donaciones.direccion_entrega, donaciones.telefono, donaciones.correo, donaciones.identidicacioncaja, donaciones.create_at FROM donaciones INNER JOIN status ON status.id_status = donaciones.id_status INNER JOIN users ON users.id_usuario = donaciones.id_usuario WHERE users.id_usuario = ?', [req.user.id_usuario]);
+    console.log(listaDonaciones);
+    // Listado sin arreglo
+    listaDonaciones.forEach(function (elemento, indice, array) {
+        var dateActual = new Date();
+        var stringDateactual = dateActual.getDate() + "/" + (dateActual.getMonth() + 1) + "/" + dateActual.getFullYear();
+        //  console.log(stringDateactual + ' actual')
+        var stringDate = elemento.create_at.getDate() + "/" + (elemento.create_at.getMonth() + 1) + "/" + elemento.create_at.getFullYear();
+        if (stringDate === stringDateactual ) {
+            const after = $('#carta-donacion').after('<p class="producto-donado-nuevo">Nuevo</p>');
+            console.log(after + ' Este registro es nuevo ' + stringDate);
+        }
+        //  console.log(stringDate + ' base de datos');
+        // end conficion
+    });
+    // End Listado sin arreglo
     res.render('donaciones/listaDonaciones', { listaDonaciones });
 });
 
+// End Lista de donaciones
+
 router.get('/editarDonacion/:id_donaciones', isLoggedIn, async (req, res) => {
-    const {id_donaciones} = req.params
+    const { id_donaciones } = req.params
     const editarDonacion = await pool.query('SELECT donaciones.id_donaciones, donaciones.id_usuario, donaciones.productname, donaciones.fechacaduc, donaciones.cantidadproduct, donaciones.descripcionproduct, status.descripcion_status, donaciones.contacto, donaciones.ubicacion_solicitante, donaciones.direccion_entrega, donaciones.telefono, donaciones.correo, donaciones.identidicacioncaja, donaciones.create_at FROM donaciones INNER JOIN status ON status.id_status = donaciones.id_status WHERE id_donaciones = ?', [id_donaciones]);
     res.render('donaciones/editarDonacion', { editarDonacion: editarDonacion[0] });
 });

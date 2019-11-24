@@ -228,7 +228,7 @@ body.user-login-id-nro-4 li.nav-item.dropdown.li-productos,
 body.user-login-id-nro-4 li.nav-item.li-tipo-productos,
 body.user-login-id-nro-4 li.nav-item.li-ayuda,
 body.user-login-id-nro-4 li.nav-item.li-solicitar-ayuda,
-body.user-login-id-nro-4 li.nav-item li-solicitar-ayuda {
+body.user-login-id-nro-4 li.nav-item.li-carta-ayuda {
   display: none;
 }
 
@@ -372,7 +372,7 @@ a.nav-link.nav-link.home-a:hover {
   color: #00a1bc;
 }
 
-a.nav-link.nav-link.home-a:before{
+a.nav-link.nav-link.home-a:before {
   content: url(/img/home.png);
   margin: 10px;
   position: relative;
@@ -536,7 +536,7 @@ ul.nav.flex-column.main-vertical-menu {
 .product-donacion-container.container .row {
   width: auto;
   max-width: 900px;
-  margin: 50px auto 0;
+  margin: 50px auto 50px;
 }
 .card {
   float: left;
@@ -797,7 +797,7 @@ h4.title {
   font-size: 20px;
 }
 
-body.user-login-id-nro-4 .date a {
+body.user-login-id-nro-4 .date {
   display: none;
 }
 
@@ -810,7 +810,7 @@ div.box-container-row {
   display: flex;
 }
 
- div.box-container.dashboard .card {
+div.box-container.dashboard .card {
   background: #fff;
   border-radius: 2px;
   height: fit-content;
@@ -822,12 +822,12 @@ div.box-container-row {
   box-shadow: 5px 5px 15px #00000057;
 }
 
-.card-body.dashboard h3{
+.card-body.dashboard h3 {
   text-align: center;
   color: #fff;
 }
 
-.card-body.dashboard{
+.card-body.dashboard {
   background-color: #d96f93;
 }
 
@@ -851,27 +851,27 @@ div.box-container.dashboard #myInput {
 /* deshabilitar dashboard */
 body.user-login-id-nro-2 .box-container-row,
 body.user-login-id-nro-3 .box-container-row,
-body.user-login-id-nro-4 .box-container-row{
+body.user-login-id-nro-4 .box-container-row {
   display: none !important;
 }
 
-
 /* desahabilitar solicitante informacion */
 
-.container.solicitante{
+.container.solicitante {
   display: none;
 }
-body.user-login-id-nro-3 .container.solicitante{
+body.user-login-id-nro-3 .container.solicitante {
   display: block;
 }
 
-p.descripcion-status{
+p.descripcion-status {
   font-size: 20px;
   text-align: center;
   font-family: sans-serif;
 }
 
-.p-4 {
+.p-4,
+.product-donacion-container.container {
   padding: 0 !important;
 }
 
@@ -879,6 +879,36 @@ form.form-donaciones.col-md-12 {
   padding: 0px 50px 0px 50px;
 }
 
-/* a:active {
-  color: red !important;
-} */
+img.approved-status-gif {
+  width: 10% !important;
+}
+
+
+.producto-donado-nuevo {
+  content: "NEW";
+  position: absolute;
+  margin: 10px;
+  padding: 10px;
+  left: 65%;
+  color: #fff;
+  bottom: 87%;
+  font-weight: bold;
+  background-color: #009cb6;
+}
+
+
+h3.text-update-solicitudes{
+  margin: 15px;
+}
+
+.search-container {
+  margin: 0;
+  width: 100%;
+}
+
+.search-container input#myInput {
+  margin: 0;
+  width: 100%;
+  background-image: url(/img/loupe.png);
+  background-position: 1090px 12px;
+}

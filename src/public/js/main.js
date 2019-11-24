@@ -6,23 +6,26 @@ function filtertable() {
         $("#myTable tr.tr-content").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
+
+        $("div#carta-donacion").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
     });
 }
 filtertable();
+
+
+
 //End search tabla
 
-
 // gif
-
 function aprobacionCarta(){
 	if($('strong').hasClass('solicitud-class-Aprobada')){
-		$( "strong.solicitud-class-Aprobada" ).after( "<img src='/img/tenor.gif'>" );
-	}else{
-        console.log('nope');
+		$( "strong.solicitud-class-Aprobada" ).after( 
+            "<div class='img-gif-approved-container'><img class='approved-status-gif' src='/img/tenor.gif'></div>"  + '<p class="descripcion-status ">Su solicitud ha sido aprobada, estaremos en comunicacion con usted en las proximas horas.</p>');
 	}
 }
 aprobacionCarta();
-
 // End gif
 
 

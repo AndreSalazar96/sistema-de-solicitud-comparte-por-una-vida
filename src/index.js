@@ -6,6 +6,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
 const passport = require('passport');
+var jsdom = require("jsdom");
 // Multer config
 const multer = require('multer');
 
@@ -44,6 +45,7 @@ app.use(session({
   saveUninitialized: false,
   store: new MySQLStore(database)
 }));
+
 
 app.use(flash());
 app.use(morgan('dev'));
