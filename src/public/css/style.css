@@ -870,3 +870,15 @@ p.descripcion-status{
   text-align: center;
   font-family: sans-serif;
 }
+
+.p-4 {
+  padding: 0 !important;
+}
+
+form.form-donaciones.col-md-12 {
+  padding: 0px 50px 0px 50px;
+}
+
+/* a:active {
+  color: red !important;
+} */

@@ -2,7 +2,7 @@
 <ul class="nav flex-column main-vertical-menu">
 
   <li class="nav-item li-home">
-    <a class="nav-link nav-link home-a" href="/dashboard/{{user.id_usuario}}">Inicio</a>
+    <a class="nav-link nav-link home-a" href="/dashboard">Inicio</a>
   </li>
   <li class="nav-item li-usuarios">
     <a class="nav-link nav-link user-a" href="/users/user">Lista de Usuarios</a>
@@ -24,9 +24,9 @@
   <li class="nav-item li-solicitud-registro">
     <a class="nav-link user-request" href="/solicitudes/listsolicitudes">Lista de solicitud para ayuda humanitaria</a>
   </li>
-  <li class="nav-item li-ayuda">
+  {{!-- <li class="nav-item li-ayuda">
     <a class="nav-link user-help" href="#">Lista de solicitud para ayuda humanitaria</a>
-  </li>
+  </li> --}}
   <li class="nav-item li-solicitar-ayuda">
     <a class="nav-link user-humanitary" href="/ayuda-humanitaria/formulario-ayuda-humanitaria/{{user.id_usuario}}">Carta
       para ayuda humanitaria</a>

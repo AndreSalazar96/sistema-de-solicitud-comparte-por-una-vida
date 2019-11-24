@@ -1,22 +1,53 @@
 
 //search tabla
-function filtertable(){
-$("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+function filtertable() {
+    $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr.tr-content").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
     });
-  });
 }
 filtertable();
+//End search tabla
 
 
+// gif
+
+function aprobacionCarta(){
+	if($('strong').hasClass('solicitud-class-Aprobada')){
+		$( "strong.solicitud-class-Aprobada" ).after( "<img src='/img/tenor.gif'>" );
+	}else{
+        console.log('nope');
+	}
+}
+aprobacionCarta();
+
+// End gif
+
+
+// a href active
+function ahrefActive() {
+    var loc = window.location.pathname;
+    $('ul.nav.flex-column.main-vertical-menu').find('a').each(function () {
+        $(this).toggleClass('active', $(this).attr('href') == loc);
+    });
+    
+}
+
+ahrefActive();
+// end a href active
+
+
+//Button login table
 function login_no_login() {
     if ($('td').hasClass('solicitud-class-Aprobada')) {
         $('td.registro-accion-table.Aprobada').css({ 'display': 'block' });
     }
 }
 login_no_login();
+//End button login table
+
 
 
 //Each product donaciones
@@ -138,17 +169,8 @@ function validateInput() {
 }
 
 validateInput();
+
 // End Each product donaciones
 
-// gif
-
-// function aprobacionCarta(){
-// 	if($('strong').hasClass('solicitud-class-Aprobada')){
-// 		$( "strong.solicitud-class-Aprobada" ).after( "<img src='/img/tenor.gif'>" );
-// 	}else{
-//         console.log('nope');
-// 	}
-// }
-// aprobacionCarta();
 
 
