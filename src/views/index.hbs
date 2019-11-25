@@ -12,10 +12,10 @@
 </main>
 
 {{!--Vista de formulario de registro--}}
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-9 mx-auto form-style">
-            <div class="card text-center box-shadow">
+<div class="container index-container">
+    <div class="row index">
+        <div class="col-md-12 mx-auto form-style">
+            <div class="card text-center box-shadow index">
                 <div class="card-header">
                     <p class="text-ayuda">Solicitud de Ayuda</p>
                 </div>
@@ -26,25 +26,26 @@
 
                         <div class="form-group">
                             <input type="text" name="nombre_solicitante" id=""
-                                placeholder="Nombre (colegio, hospital o casa hogar)" class="form-control">
+                                placeholder="Nombre (colegio, hospital o casa hogar)" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                             <input type="text" name="ubicacion_solicitante" placeholder="Ubicación"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="contacto" placeholder="Nombre de solicitante" class="form-control">
+                            <input type="text" name="contacto" placeholder="Nombre de solicitante" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="telefono" placeholder="Teléfono" class="form-control">
+                            <input type="text" name="telefono" placeholder="Teléfono" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="mail" name="correo" placeholder="Correo" class="form-control">
+                            <input type="mail" name="correo" placeholder="Correo" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <textarea name="razon_proveedor" placeholder="Escribenos tu necesidad"
-                                class="form-control"></textarea>
+                                class="form-control" onkeyup="countChars(this);" maxlength="900" required></textarea>
+                                <p id="charNum">900 characters remaining</p>
                         </div>
 
                         <div class="form-group">
@@ -52,17 +53,19 @@
                                 Enviar Solicitud de Ayuda
                             </button>
                         </div>
-                        <div class="form-group" style="visibility: hidden">
-                            <input type="number" name="id_tipo_usuario" id="" placeholder="id_tipo_usuario"
-                                class="form-control" value="3">
-                        </div>
-                        <div class="form-group" style="visibility: hidden">
-                            <input type="number" name="id_status" id="" placeholder="id_status" class="form-control"
-                                value="1">
-                        </div>
-                        <div class="form-group" style="visibility: hidden">
-                            <input type="number" name="id_tipo_solicitud" id="" placeholder="id_tipo_solicitud"
-                                class="form-control" value="2">
+                        <div class="hidden-inpur-index">
+                            <div class="form-group" style="visibility: hidden;">
+                                <input type="number" name="id_tipo_usuario" id="" placeholder="id_tipo_usuario"
+                                    class="form-control" value="3">
+                            </div>
+                            <div class="form-group" style="visibility: hidden;">
+                                <input type="number" name="id_status" id="" placeholder="id_status" class="form-control"
+                                    value="1">
+                            </div>
+                            <div class="form-group" style="visibility: hidden;">
+                                <input type="number" name="id_tipo_solicitud" id="" placeholder="id_tipo_solicitud"
+                                    class="form-control" value="2">
+                            </div>
                         </div>
                     </form>
                 </div>

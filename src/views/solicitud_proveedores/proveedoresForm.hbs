@@ -1,7 +1,7 @@
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-9 mx-auto form-style">
-            <div class="card text-center box-shadow">
+<div class="container index-container">
+    <div class="row index">
+        <div class="col-md-12 mx-auto form-style">
+            <div class="card text-center box-shadow index">
                 <div class="card-header">
                     <p class="text-ayuda">Solicitud de Donacion</p>
                 </div>
@@ -10,44 +10,48 @@
                     <form action="/solicitud_proveedores/proveedoresForm" method="POST">
 
                         <div class="form-group">
-                            <input type="text" name="contacto" id="" placeholder="Nombre Completo"
-                                class="form-control">
+                            <input type="text" name="contacto" id="" placeholder="Nombre Completo" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="ubicacion_solicitante" placeholder="Ubicación" class="form-control">
+                            <input type="text" name="ubicacion_solicitante" placeholder="Ubicación"
+                                class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="telefono" placeholder="Teléfono" class="form-control">
+                            <input type="text" name="telefono" placeholder="Teléfono" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="correo" placeholder="Correo" class="form-control">
+                            <input type="email" name="correo" placeholder="Correo" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                             <input type="text" name="nombre_solicitante" placeholder="Empresa (opcional)"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                         <div class="form-group">
                             <textarea name="razon_proveedor"
                                 placeholder="Escribenos el por que quieres donar algo a la fundacion"
-                                class="form-control"></textarea>
+                                class="form-control" onkeyup="countChars(this);" maxlength="900" required></textarea>
+                                <p id="charNum">900 characters remaining</p>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-success btn-block">
                                 Enviar Solicitud para donacion
                             </button>
                         </div>
-                        <div class="form-group" style="visibility: hidden">
-                            <input type="number" name="id_tipo_usuario" id="" placeholder="id_tipo_usuario"
-                                class="form-control" value="4">
+                        <div class="hidden-inpur-index">
+                            <div class="form-group" style="visibility: hidden">
+                                <input type="number" name="id_tipo_usuario" id="" placeholder="id_tipo_usuario"
+                                    class="form-control" value="4">
+                            </div>
+                            <div class="form-group" style="visibility: hidden">
+                                <input type="number" name="id_status" id="" placeholder="id_status" class="form-control"
+                                    value="1">
+                            </div>
                         </div>
                         <div class="form-group" style="visibility: hidden">
-                            <input type="number" name="id_status" id="" placeholder="id_status" class="form-control"
-                                value="1">
-                        </div>
-                        <div class="form-group" style="visibility: hidden">
-                            <input type="number" name="id_tipo_solicitud" id="" placeholder="id_tipo_solicitud" class="form-control" value="1">
+                            <input type="number" name="id_tipo_solicitud" id="" placeholder="id_tipo_solicitud"
+                                class="form-control" value="1">
                         </div>
                     </form>
                 </div>

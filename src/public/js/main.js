@@ -1,4 +1,66 @@
 
+// esconder botones solicitud
+function showOrHiddeButton(){
+	if($('div').hasClass('espera')){
+        $('button.btn.btn-success').css({'display':'none'});
+        $('a.btn.btn-secondary.enespera').css({'display':'none'});
+	}else if($('div').hasClass('proceso')){
+        $('a.btn.btn-warning.en-proceso').css({'display':'none'});
+        $('textarea.form-control').after('<p class="visto-mensaje">En este momento la solicitus fue revisada</p>')
+        $('a.btn.btn-secondary.enespera').css({'display':'none'})
+    }else if($('div').hasClass('Anulada')){
+        $('a.btn.btn-warning.en-proceso').css({'display':'none'});
+        $('button.btn.btn-success').css({'display':'none'});
+        $('a.btn.btn-danger.anaular').css({'display':'none'});
+        $('textarea.form-control').after('<p class="visto-mensaje">La solicitud fue anulada. </p>')
+    }else if($('div').hasClass('Aprobada')){
+        $('textarea.form-control').after("<div class='img-gif-approved-container'><img class='approved-status-gif' src='/img/tenor.gif'></div>" + '<p class="descripcion-status ">Solicitud Aprobada</p>')
+        $('a.btn.btn-warning.en-proceso').css({'display':'none'});
+        $('a.btn.btn-danger.anaular').css({'display':'none'});
+        $('button.btn.btn-success').css({'display':'none'})
+        $('a.btn.btn-secondary.enespera').css({'display':'none'})
+    }
+}
+
+showOrHiddeButton();
+
+
+// contandor de caracteres textarea
+function countChars(obj){
+    var maxLength = 900;
+    var strLength = obj.value.length;
+    var charRemain = (maxLength - strLength);
+    
+    if(charRemain <= 0){
+        document.getElementById("charNum").innerHTML = '<span class="count-text-span" style="color: red;">Llegaste al limite de '+maxLength+' carácteres</span>';
+    }else{
+        document.getElementById("charNum").innerHTML = charRemain+' caracteres restantes';
+    }
+}
+
+// close menu
+function closeAndOpenMenu() {
+    $('ul.nav.flex-column.main-vertical-menu').addClass('menu-open');
+        $('li#close-li').click(function () {
+            $('ul.nav.flex-column.main-vertical-menu').addClass('menu-close');
+            $('ul.nav.flex-column.main-vertical-menu').removeClass('menu-open');
+            $('.nav-item.li-open').css({ 'display': 'block', 'position': 'absolute', 'left': '0%', 'top': '13%', 'width': 'auto', 'padding': '12px' });
+            $('.container').css({'max-width':'100%'});
+            $('ul.nav.flex-column.main-vertical-menu').toggle();
+        });
+   
+        $('li#open-li').click(function () {
+            $('ul.nav.flex-column.main-vertical-menu.menu-close').removeClass('menu-close');
+            $('ul.nav.flex-column.main-vertical-menu').addClass('menu-open');
+            $('.nav-item.li-open').css({ 'display': 'none', 'position': 'absolute', 'left': '0%', 'top': '13%', 'width': 'auto',  'padding': '12px' });
+            $('li.nav-item a').css({ 'display': 'block' });
+            $('ul.nav.flex-column.main-vertical-menu').toggle();
+
+        });
+   
+}
+closeAndOpenMenu();
+
 //search tabla
 function filtertable() {
     $("#myInput").on("keyup", function () {
@@ -10,20 +72,18 @@ function filtertable() {
         $("div#carta-donacion").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
+
     });
 }
 filtertable();
 
-
-
 //End search tabla
 
 // gif
-function aprobacionCarta(){
-	if($('strong').hasClass('solicitud-class-Aprobada')){
-		$( "strong.solicitud-class-Aprobada" ).after( 
-            "<div class='img-gif-approved-container'><img class='approved-status-gif' src='/img/tenor.gif'></div>"  + '<p class="descripcion-status ">Su solicitud ha sido aprobada, estaremos en comunicacion con usted en las proximas horas.</p>');
-	}
+function aprobacionCarta() {
+    if ($('strong').hasClass('solicitud-class-Aprobada')) {
+        $("strong.solicitud-class-Aprobada").after("<div class='img-gif-approved-container'><img class='approved-status-gif' src='/img/tenor.gif'></div>" + '<p class="descripcion-status ">Su solicitud ha sido aprobada, estaremos en comunicacion con usted en las proximas horas.</p>');
+    }
 }
 aprobacionCarta();
 // End gif
@@ -35,7 +95,7 @@ function ahrefActive() {
     $('ul.nav.flex-column.main-vertical-menu').find('a').each(function () {
         $(this).toggleClass('active', $(this).attr('href') == loc);
     });
-    
+
 }
 
 ahrefActive();

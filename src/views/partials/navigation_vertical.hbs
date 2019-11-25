@@ -2,11 +2,28 @@
 <ul class="nav flex-column main-vertical-menu">
 
   <li class="nav-item li-home">
-    <a class="nav-link nav-link home-a" href="/dashboard/{{user.id_usuario}}">Inicio</a>
+    <a class="nav-link nav-link home-a" href="/dashboard">Inicio</a>
   </li>
-  <li class="nav-item li-usuarios">
+  {{!-- <li class="nav-item li-usuarios">
     <a class="nav-link nav-link user-a" href="/users/user">Lista de Usuarios</a>
+  </li> --}}
+
+  {{!-- capsula --}}
+  <li class="nav-item li-usuarios">
+    <a class="nav-link dropdown-toggle user-a" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Usuarios
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="/signup">Agreagr Usuario</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="/users/user">Ver Lista de Usuarios</a>
+    </div>
   </li>
+  {{!-- capsula --}}
+
+
+
   <li class="nav-item dropdown li-productos">
     <a class="nav-link dropdown-toggle user-box" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false">
@@ -39,11 +56,26 @@
     <a class="nav-link user-donation" href="/donaciones/realizarDonacion/{{user.id_usuario}}">Realizar Donaciones</a>
   </li>
   <li class="nav-item li-listadonaciones">
-    <a class="nav-link user-lista-donation" href="/donaciones/listaDonaciones/{{users.id_usuario}}">Tu lista de productos donados</a>
+    <a class="nav-link user-lista-donation" href="/donaciones/listaDonaciones/{{users.id_usuario}}">Tu lista de
+      productos donados</a>
   </li>
   <li class="nav-item li-proveedores">
     <a class="nav-link user-providers" href="/solicitud_proveedores/lista_proveedores">Solicitudes para registro de
       proveedores</a>
   </li>
+
+  <li class="nav-item li-close" id="close-li">
+    <div class="button-menu-container">
+      {{!-- <img src="/img/close.png" alt=""> --}}
+      <p>Cerrar Menu</p>
+    </div>
+  </li>
+
 </ul>
+<li class="nav-item li-open" id="open-li" style="display: none;">
+  <div class="button-menu-container">
+    {{!-- <img src="/img/open.png" alt=""> --}}
+    <p>Abrir Menu</p>
+  </div>
+</li>
 {{/if}}

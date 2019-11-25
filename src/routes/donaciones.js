@@ -56,13 +56,14 @@ router.get('/listaDonaciones/', isLoggedIn, async (req, res) => {
     listaDonaciones.forEach(function (elemento, indice, array) {
         var dateActual = new Date();
         var stringDateactual = dateActual.getDate() + "/" + (dateActual.getMonth() + 1) + "/" + dateActual.getFullYear();
-        //  console.log(stringDateactual + ' actual')
+        //   console.log(stringDateactual + ' actual')
         var stringDate = elemento.create_at.getDate() + "/" + (elemento.create_at.getMonth() + 1) + "/" + elemento.create_at.getFullYear();
         if (stringDate === stringDateactual ) {
-            const after = $('#carta-donacion').after('<p class="producto-donado-nuevo">Nuevo</p>');
+            
+            const after = $('#carta-donacion').after('<p class="producto-donado-nuevo">Publicado Hoy</p>');
             console.log(after + ' Este registro es nuevo ' + stringDate);
         }
-        //  console.log(stringDate + ' base de datos');
+        //   console.log(stringDate + ' base de datos');
         // end conficion
     });
     // End Listado sin arreglo

@@ -1,56 +1,77 @@
 {{!--Vista de formulario de registro--}}
 <div class="container p-4">
+    <div class="card-body dashboard">
+        <h3> Agregar Usuario</h3>
+    </div>
     <div class="row">
         <div class="col-md-6 mx-auto">
-            <div class="card text-center">
+            <div class="card text-center agreagr-usuario">
                 <div class="card-header">
-                    <h3>Agregar nuevo usuario <strong>{{registro_proveedores.descripcion_tipo_usuario}}</strong></h3>
+                    <h3>Usurio Nuevo</h3>
                 </div>
                 <div class="card-body">
-                    <form action="/signup/{{registro_proveedor.id_solicitudes}}" method="POST" enctype="multipart/form-data">
+                    <form action="/signup/{{registro_proveedor.id_solicitudes}}" method="POST"
+                        enctype="multipart/form-data">
                         <div class="form-group">
+                            <label for="fullname" class="input-label">Nombre Completo</label>
                             <input type="text" name="fullname" placeholder="Nombre Completo" class="form-control"
                                 autofocus required value="{{registro_proveedores.contacto}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="username" id="" placeholder="Username (requerido)" class="form-control" required>
+                             <label for="username" class="input-label">Username (requerido)</label>
+                            <input type="text" name="username" id="" placeholder="Username (requerido)"
+                                class="form-control" required>
                         </div>
                         <div class="form-group">
+                            <label for="nombre_razon" class="input-label">Nombre (hospital, casa hogar, colegio)</label>
                             <input type="text" name="nombre_razon" placeholder="Nombre (hospital, casa hogar, colegio)"
                                 class="form-control" value="{{registro_proveedores.nombre_solicitante}}">
                         </div>
                         <div class="form-group">
-                            <div class="input-group mb-3">
+                            <label for="id_tipo_usuario" class="input-label">Tipo de usuario</label>
+                            <div class="input-group mb-3">       
                                 <div class="input-group-prepend">
                                     <label class="input-group-text" for="inputGroupSelect01">Seleccione</label>
                                 </div>
                                 <select class="custom-select" id="inputGroupSelect01" name="id_tipo_usuario">
-                                    <option value="{{registro_proveedores.id_tipo_usuario}}">{{registro_proveedores.descripcion_tipo_usuario}}</option>
+                                    <option value="{{registro_proveedores.id_tipo_usuario}}">
+                                        {{registro_proveedores.descripcion_tipo_usuario}}</option>
                                     {{#each tipo_usuario}}
                                     <option value="{{id_tipo_usuario}}">{{descripcion_tipo_usuario}}</option>
-                                    {{/each}}       
+                                    {{/each}}
                                 </select>
 
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="telefono" placeholder="Telefono" class="form-control" value="{{registro_proveedores.telefono}}" required>
+                            <label for="telefono" class="input-label">Telefono</label>
+                            <input type="text" name="telefono" placeholder="Telefono" class="form-control"
+                                value="{{registro_proveedores.telefono}}" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="correo" placeholder="Correo electronico" class="form-control" value="{{registro_proveedores.correo}}" required>
+                            <label for="correo" class="input-label">Correo electronico</label>
+                            <input type="text" name="correo" placeholder="Correo electronico" class="form-control"
+                                value="{{registro_proveedores.correo}}" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="direccion" placeholder="Direccion" class="form-control" value="{{registro_proveedores.ubicacion_solicitante}}" required>
+                            <label for="direccion" class="input-label">Direccion</label>
+                            <input type="text" name="direccion" placeholder="Direccion" class="form-control"
+                                value="{{registro_proveedores.ubicacion_solicitante}}" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" placeholder="Contraseña (requerido)" class="form-control" required>
+                             <label for="password" class="input-label">Contraseña (requerido)</label>
+                            <input type="password" name="password" placeholder="Contraseña (requerido)"
+                                class="form-control" required>
                         </div>
+                         <label for="avatar_image" class="input-label">Subir Imagen</label>
                         <div class="input-group mb-3">
+                            
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupFileAddon01">Subir</span>
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="avatar_image">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                    aria-describedby="inputGroupFileAddon01" name="avatar_image">
                                 <label class="custom-file-label" for="inputGroupFile01">Subir Imagen...</label>
                             </div>
                         </div>

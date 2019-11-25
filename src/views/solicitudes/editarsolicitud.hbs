@@ -1,13 +1,16 @@
 {{!--Vista de formulario de registro--}}
 
-<div class="container aprobar-solicitud">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
+<div class="container aprobar-solicitud estado-{{solicitud.descripcion_status}}">
+    {{!-- <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-add-solitudes">
         <h3 class="text-update-solicitudes">Aprobar Solicitud</h3>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-    </nav>
+    </nav> --}}
+    <div class="card-body dashboard">
+        <h3> Aprobar Solicitud</h3>
+    </div>
     <div class="row">
         <div class="col-md-6 mx-auto form-style aprobar-solicitud">
             <div class="card text-center box-shadow {{solicitud.descripcion_status}}">
@@ -19,48 +22,60 @@
                     <form action="/solicitudes/editarsolicitud/{{solicitud.id_solicitudes}}" method="POST">
 
                         <div class="form-group">
+                            <label for="nombre_solicitante" class="input-label">Nombre (colegio, hospital)</label>
                             <input type="text" name="nombre_solicitante" id="" placeholder="Nombre (colegio, hospital)"
                                 class="form-control" value="{{solicitud.nombre_solicitante}}" disabled>
                         </div>
 
                         <div class="form-group">
+                            <label for="ubicacion_solicitante" class="input-label">Ubicación</label>
                             <input type="text" name="ubicacion_solicitante" placeholder="Ubicación" class="form-control"
                                 value="{{solicitud.ubicacion_solicitante}}" disabled>
                         </div>
                         <div class="form-group">
+                            <label for="contacto" class="input-label">Nombre de solicitante</label>
                             <input type="text" name="contacto" placeholder="Nombre de solicitante" class="form-control"
                                 value="{{solicitud.contacto}}" disabled>
                         </div>
                         <div class="form-group">
+                            <label for="telefono" class="input-label">Teléfono</label>
                             <input type="text" name="telefono" placeholder="Teléfono" class="form-control"
                                 value="{{solicitud.telefono}}" disabled>
                         </div>
                         <div class="form-group">
+                            <label for="correo" class="input-label">Correo</label>
                             <input type="mail" name="correo" placeholder="Correo" class="form-control"
                                 value="{{solicitud.correo}}" disabled>
                         </div>
 
                         <div class="form-group">
+                            <label for="id_status" class="input-label">Estatus de solicitud</label>
                             <input type="text" name="id_status" id="" placeholder="id_status" class="form-control"
                                 value="{{solicitud.descripcion_status}}" disabled>
                         </div>
 
                         <div class="form-group">
+                            <label for="id_tipo_usuario" class="input-label">Tipo de Usuario</label>
                             <input type="text" name="id_tipo_usuario" id="" placeholder="id_tipo_usuario"
-                                class="form-control" value="{{solicitud.descripcion_tipo_usuario}}" disabled>
+                                class="form-control" value="{{solicitud.descripcion_tipo_usuario}} " disabled>
                         </div>
 
                         <div class="form-group">
-                            <textarea name="razon_proveedor" placeholder="Escribenos tu necesidad"
-                                class="form-control" disabled>{{solicitud.razon_proveedor}}</textarea>
+                            <label for="razon_proveedor" class="input-label">Escribenos tu necesidad</label>
+                            <textarea name="razon_proveedor" placeholder="Escribenos tu necesidad" class="form-control"
+                                disabled>{{solicitud.razon_proveedor}}</textarea>
+
+
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-success">
+                            <button class="btn btn-success aprobado">
                                 Aprobar al solicitante
                             </button>
-                            <a href="/solicitudes/enproceso/{{solicitud.id_solicitudes}}" class="btn btn-warning">En
-                                Proceso</a>
-                            <a href="/solicitudes/anular/{{solicitud.id_solicitudes}}" class="btn btn-danger">Anular</a>
+                            <a href="/solicitudes/enproceso/{{solicitud.id_solicitudes}}"
+                                class="btn btn-warning en-proceso">Visto</a>
+                            <a href="/solicitudes/anular/{{solicitud.id_solicitudes}}"
+                                class="btn btn-danger anaular">Anular</a>
+                            {{!-- <a href="/solicitudes/enespera/{{solicitud.id_solicitudes}}" class="btn btn-secondary enespera">En espera</a> --}}
                         </div>
                     </form>
                 </div>

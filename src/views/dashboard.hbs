@@ -12,7 +12,7 @@
                     {{!-- <input id="myInput" type="text" placeholder="Search.."> --}}
                     <table class="table table-bordered solicitud-table" id="myTable">
                         <thead>
-                            <tr>
+                            <tr> 
                                 <th scope="col">ID</th>
                                 <th scope="col">status</th>
                                 <th scope="col">Institucion</th>
@@ -32,6 +32,7 @@
                         </tbody>
                         {{/each}}
                     </table>
+                    <div class="button-more-container"><p><a href="/solicitudes/listsolicitudes">Ver más...</a></p></div>
                 </div>
             </div>
         </div>
@@ -39,10 +40,10 @@
             <div class="container-information">
                 <div class="container-title-dashboard">
                     <h3>Resumen Lista de cartas </h3>
+                    
                 </div>
                 <div class="container-information-dashboard">
-                    {{!-- <input type="text" id="myInput" onkeyup="filterTableFunction()" placeholder="Buscar carta..."> --}}
-                    <table class="table table-bordered solicitud-table" id="myTable">
+                    <table class="table table-bordered resumen-lista-cartas" id="myTable-cartas">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
@@ -65,6 +66,7 @@
                         </tbody>
                         {{/each}}
                     </table>
+                    <div class="button-more-container"><p><a href="/ayuda-humanitaria/lista-ayuda-humanitaria">Ver más...</a></p></div>
                 </div>
             </div>
         </div>
@@ -98,6 +100,7 @@
                         </tbody>
                         {{/each}}
                     </table>
+                    <div class="button-more-container"><p><a href="/donaciones/listaDonaciones/{{users.id_usuario}}">Ver más...</a></p></div>
                 </div>
             </div>
         </div>
@@ -111,7 +114,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Nombre proveedor</th>
+                                <th scope="col">Nombre</th>
                                 <th scope="col">direccion</th>
                                 <th scope="col">Fecha de ingreso</th>
                             </tr>
@@ -130,6 +133,7 @@
                         </tbody>
                         {{/each}}
                     </table>
+                    <div class="button-more-container"><p><a href="/">Ver más...</a></p></div>
                 </div>
             </div>
         </div>

@@ -63,10 +63,10 @@ body {
   font-family: "Oswalt", sans-serif;
 }
 
-.index {
+/* .index {
   width: 100vw;
   height: 115vh;
-}
+} */
 
 .masthead {
   color: white;
@@ -203,7 +203,8 @@ body.user-login-id-nro-2 li.nav-item.li-proveedores,
 body.user-login-id-nro-2 li.nav-item.li-solicitar-ayuda,
 body.user-login-id-nro-2 li.nav-item.li-donaciones,
 body.user-login-id-nro-2 li.nav-item.li-listadonaciones,
-body.user-login-id-nro-2 li.nav-item li-solicitar-ayuda {
+body.user-login-id-nro-2 li.nav-item.li-solicitar-ayuda,
+body.user-login-id-nro-2 li.nav-item.li-carta-ayuda {
   display: none;
 }
 
@@ -260,7 +261,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.main-horizontal-menu {
   border: 2px solid #d96f93;
   border-radius: 5px;
   box-shadow: 4px 4px 8px 0px #00000066;
-  margin-bottom: 20px;
+ 
 }
 
 /* TABS INDEX STYLE */
@@ -521,10 +522,13 @@ a.nav-link.username {
 }
 
 img.avatar_image {
-  border-radius: 100%;
+  border-radius: 155px;
   width: auto;
-  max-width: 50%;
+  height: 220px;
+  max-width: 52%;
   max-height: 100%;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 ul.nav.flex-column.main-vertical-menu {
@@ -911,4 +915,120 @@ h3.text-update-solicitudes{
   width: 100%;
   background-image: url(/img/loupe.png);
   background-position: 1090px 12px;
+}
+
+.button-more-container a {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.button-more-container {
+  padding: 25px 0px 0px 0px;
+}
+
+.container.tipo-producto-container .row.col-md-12,
+.container.aprobar-solicitud{
+  padding: 0;
+}
+
+.container.tipo-producto-container form.col-md-6{
+  margin-top: 3%;
+}
+
+li#close-li,
+li#open-li{
+    background-color: #d96f93;
+    /* padding: 10px 10px 0px 10px; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+li#close-li p,
+li#open-li p {
+  color: #fff;
+  font-weight: bold;
+  
+}
+
+
+li.nav-item a,
+li.nav-item p {
+  font-size: 12px;
+}
+
+.button-menu-container p{
+  margin: 15px;
+}
+
+
+.row.index{
+  width: 100%;
+  margin: 0 !important;
+}
+
+.hidden-inpur-index {
+  position: absolute;
+}
+
+.container.index-container {
+  padding: 0;
+}
+
+.col-md-12.mx-auto.form-style{
+  padding: 0 !important;
+}
+
+.card.text-center.box-shadow.index .card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgb(255, 255, 255) !important;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.container.p-4.form-signin{
+  min-height: 30rem;
+  width: 100%;
+}
+
+.col-md-4.mx-auto.form-signin{
+  margin: 100px;
+}
+
+span.count-text-span,
+p#charNum {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 15px !important;
+  padding: 10px !important;
+}
+
+.card.edit-product{
+  margin: 50px 10px 50px 10px !important;
+}
+
+p.visto-mensaje {
+  font-size: 20px;
+  margin: 20px;
+  font-weight: bold;
+}
+
+.img-gif-approved-container {
+  margin-top: 5%;
+}
+
+label.input-label{
+  display:flex;
+}
+
+.card.text-center.agreagr-usuario {
+  margin: 30px 0px 30px 0px;
+}
+
+.card.text-center.agreagr-usuario .card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgb(255, 255, 255) !important;
+  border-bottom: 1px solid rgba(0,0,0,.125);
 }
